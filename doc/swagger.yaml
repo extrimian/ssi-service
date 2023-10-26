@@ -1788,6 +1788,150 @@ definitions:
           $ref: '#/definitions/did.Method'
         type: array
     type: object
+  pkg_server_router.CredentialSchemaQuarkid:
+    type: object
+    required:
+      - did
+      - vc
+      - outputDescriptor
+      - issuer
+    properties:
+      did:
+        type: string
+      vc:
+        type: object
+        required:
+          - "@context"
+          - id
+          - type
+          - issuer
+          - issuanceDate
+          - credentialSubject
+        properties:
+          "@context":
+            type: array
+            items:
+              type: string
+          id:
+            type: string
+          type:
+            type: array
+            items:
+              type: string
+          issuer:
+            type: string
+          issuanceDate:
+            type: string
+            format: date
+          credentialSubject:
+            type: object
+            required:
+              - id
+              - givenName
+              - familyName
+            properties:
+              id:
+                type: string
+              givenName:
+                type: string
+              familyName:
+                type: string
+      outputDescriptor:
+        type: object
+        required:
+          - id
+          - schema
+          - display
+          - styles
+        properties:
+          id:
+            type: string
+          schema:
+            type: string
+          display:
+            type: object
+            required:
+              - title
+              - subtitle
+              - description
+            properties:
+              title:
+                $ref: '#/definitions/DisplayItem'
+              subtitle:
+                $ref: '#/definitions/DisplayItem'
+              description:
+                type: object
+                properties:
+                  text:
+                    type: string
+          styles:
+            $ref: '#/definitions/Styles'
+      issuer:
+        type: object
+        required:
+          - name
+          - styles
+        properties:
+          name:
+            type: string
+          styles:
+            $ref: '#/definitions/Styles'
+  DisplayItem:
+    type: object
+    required:
+      - path
+      - fallback
+    properties:
+      path:
+        type: array
+        items:
+          type: string
+      fallback:
+        type: string
+  Styles:
+    type: object
+    properties:
+      background:
+        type: object
+        properties:
+          color:
+            type: string
+      thumbnail:
+        type: object
+        properties:
+          uri:
+            type: string
+          alt:
+            type: string
+      hero:
+        type: object
+        properties:
+          uri:
+            type: string
+          alt:
+            type: string
+      text:
+        type: object
+        properties:
+          color:
+            type: string
+
+  pkg_server_router.MessagingDidcomm: 
+    type: object
+    required:
+      - did
+      - to
+      - message
+    properties:
+      did:
+        type: string
+        example: "did:quarkid:zksync:EiAAaZihp4CQRJomZL_UIQ8PnkXUx7UFhtR9kDTc6KpgkA"
+      to:
+        type: string
+        example: "did:quarkid:zksync:EiDN_G1KIO1I9UCp7X9HM0YBZLcg9-UAiD-gIT9cndMawg"
+      message:
+        type: string
+        example: "didcomm://?_oob=eyJ0eXBlIjoiaHR0cHM6Ly9kaWRjb21tLm9yZy9vdXQtb2YtYmFuZC8yLjAvaW52aXRhdGlvbiIsImlkIjoiNmUxY2NjYjYtNDA2ZS00YTFmLTk4MTEtOTAxNTgxNTkwNWQ2IiwiZnJvbSI6ImRpZDpxdWFya2lkOnprc3luYzpFaUFBYVppaHA0Q1FSSm9tWkxfVUlROFBua1hVeDdVRmh0UjlrRFRjNktwZ2tBIiwiYm9keSI6eyJnb2FsX2NvZGUiOiJzdHJlYW1saW5lZC12YyIsImFjY2VwdCI6WyJkaWRjb21tL3YyIl19fQ=="
   pkg_server_router.ListDIDsByMethodResponse:
     properties:
       dids:
@@ -2359,11 +2503,10 @@ definitions:
     - Hour
 info:
   contact:
-    email: tbd-developer@squareup.com
-    name: TBD
-    url: https://github.com/TBD54566975/ssi-service/issues
-  description: 'The Self Sovereign Identity Service: Managing DIDs, Verifiable Credentials,
-    and more!'
+    email: accountservice@extrimian.com 
+    name: Extrimian
+    url: https://github.com/extrimian/ssi-service/issues
+  description: 'The Self Sovereign Identity Service: Managing DIDs, Verifiable Credentials, and more! Now supporting the Quakid DID method, credentials in BBS+ format, and WACI flows.!'
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
@@ -2402,6 +2545,171 @@ paths:
       summary: Check service readiness
       tags:
       - ServiceInfo
+  /v1/credentialsbbs/wacioob:
+    put:
+      consumes:
+      - application/json
+      description: Create a Verifiable Credential
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/pkg_server_router.CredentialSchemaQuarkid'
+      summary: Create a Verifiable Credential
+      tags:
+      - CredentilasBBSQuarkid
+  /v1/credentialsbbs:
+    get:
+      consumes:
+      - application/json
+      description: List a Verifiable Credential
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/pkg_server_router.GetHealthCheckResponse'
+      summary: List a Verifiable Credential
+      tags:
+      - CredentilasBBSQuarkid
+    put:
+      consumes:
+      - application/json
+      description: Create a signed verifiable credential, without starting the Waci Didcomm flow
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/pkg_server_router.GetHealthCheckResponse'
+      summary: Create a signed verifiable credential
+      tags:
+      - CredentilasBBSQuarkid
+  /v1/credentialsbbs/render:
+    put:
+      consumes:
+      - application/json
+      description: Create a verifiable credential signed and with the information for rendering in the wallet
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/pkg_server_router.GetHealthCheckResponse'
+      summary: Create a verifiable credential
+      tags:
+      - CredentilasBBSQuarkid
+  /v1/credentialsbbs/waci:
+    put:
+      consumes:
+      - application/json
+      description: Interpret a DidComm flow
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/pkg_server_router.GetHealthCheckResponse'
+      summary: Interpret a DidComm flow
+      tags:
+      - CredentilasBBSQuarkid
+  /v1/credentialsbbs/verifier:
+    put:
+      consumes:
+      - application/json
+      description: |-
+        Verifies a given verifiable credential. The system does the following levels of verification:
+        1. Makes sure the credential has a valid signature
+        2. Makes sure the credential has is not expired
+        3. Makes sure the credential complies with the VC Data Model v1.1
+        4. If the credential has a schema, makes sure its data complies with the schema
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/pkg_server_router.CredentialSchemaQuarkid'
+      summary: Crea una VC firmada con BBS+
+      tags:
+      - CredentilasBBSQuarkid
+  /v1/dids/quarkid:
+    put:
+      consumes:
+      - application/json
+      description: |-
+        Create a fully escrow DID document with the Quarkid method. The created document is stored internally.
+        and can be retrieved using Get Operation. The private keys created by the method are stored
+        Internally in the Vault and never leaves the service boundary.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Create a DID Document
+      tags:
+      - DecentralizedIdentifiersQuarkid
+  /v1/dids/quarkid/{id}:
+    get:
+      consumes:
+      - application/json
+      description: |-
+        Returns a DID Document after a DID.
+      produces:
+      - application/json
+      parameters:
+      - description: request body
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/pkg_server_router.ListDIDsByMethodResponse'
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: List DID Document
+      tags:
+      - DecentralizedIdentifiersQuarkid
+  /v1/messaging:
+    put:
+      consumes:
+      - application/json
+      description: Automatic handling of a DidComm flow
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/pkg_server_router.MessagingDidcomm'
+      summary: Didcomm messaging management
+      tags:
+      - MessagingDidcommQuarkid
   /v1/credentials:
     get:
       consumes:
