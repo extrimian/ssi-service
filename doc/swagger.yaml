@@ -2649,6 +2649,17 @@ paths:
         Internally in the Vault and never leaves the service boundary.
       produces:
       - application/json
+      parameters:
+      - description: Websocket
+        in: query
+        name: websocket
+        required: false
+        type: string
+      - description: Dwn
+        in: query
+        name: dwn
+        required: false
+        type: string
       responses:
         "200":
           description: OK
