@@ -276,34 +276,22 @@ func (s *Service) CreateQuarkidDID(websocket, dwn string) (QuarkidIdentityRespon
 				PublicKeyJWK:             didCommJwk.PublicKeyJWK,
 				VerificationRelationship: "keyAgreement",
 			}},
-		// Services: []DIDDocService{
-		// 	{
-		// 		ID:              "websocket",
-		// 		Type:            "MessagingWebSocket",
-		// 		ServiceEndpoint: "https://befc-2800-af0-1408-1d9f-b0ec-e9e8-6c81-400e.ngrok-free.app",
-		// 	},
-		// 	{
-		// 		ID:              "dwn",
-		// 		Type:            "DecentralizedWebNode",
-		// 		ServiceEndpoint: "https://demo.extrimian.com/dwn/",
-		// 	},
-		// },
 		DidMethod: "did:quarkid:zksync",
-	}
-
-	if websocket != "" {
-		identityRequest.Services = append(identityRequest.Services, DIDDocService{
-			ID:              "dwn",
-			Type:            "DecentralizedWebNode",
-			ServiceEndpoint: websocket,
-		})
 	}
 
 	if dwn != "" {
 		identityRequest.Services = append(identityRequest.Services, DIDDocService{
+			ID:              "dwn",
+			Type:            "DecentralizedWebNode",
+			ServiceEndpoint: dwn,
+		})
+	}
+
+	if websocket != "" {
+		identityRequest.Services = append(identityRequest.Services, DIDDocService{
 			ID:              "websocket",
 			Type:            "MessagingWebSocket",
-			ServiceEndpoint: dwn,
+			ServiceEndpoint: websocket,
 		})
 	}
 
