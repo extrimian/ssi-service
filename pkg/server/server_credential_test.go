@@ -13,19 +13,19 @@ import (
 	"github.com/google/uuid"
 	"github.com/mohae/deepcopy"
 
-	"github.com/tbd54566975/ssi-service/pkg/testutil"
+	"github.com/extrimian/ssi-service/pkg/testutil"
 
-	credsdk "github.com/TBD54566975/ssi-sdk/credential"
-	"github.com/TBD54566975/ssi-sdk/crypto"
-	didsdk "github.com/TBD54566975/ssi-sdk/did"
+	credsdk "github.com/extrimian/ssi-sdk/credential"
+	"github.com/extrimian/ssi-sdk/crypto"
+	didsdk "github.com/extrimian/ssi-sdk/did"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/tbd54566975/ssi-service/internal/keyaccess"
-	"github.com/tbd54566975/ssi-service/internal/util"
-	"github.com/tbd54566975/ssi-service/pkg/server/router"
-	"github.com/tbd54566975/ssi-service/pkg/service/did"
-	"github.com/tbd54566975/ssi-service/pkg/service/schema"
+	"github.com/extrimian/ssi-service/internal/keyaccess"
+	"github.com/extrimian/ssi-service/internal/util"
+	"github.com/extrimian/ssi-service/pkg/server/router"
+	"github.com/extrimian/ssi-service/pkg/service/did"
+	"github.com/extrimian/ssi-service/pkg/service/schema"
 )
 
 func TestCredentialAPI(t *testing.T) {

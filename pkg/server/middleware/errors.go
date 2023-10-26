@@ -7,8 +7,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
 
-	"github.com/tbd54566975/ssi-service/config"
-	"github.com/tbd54566975/ssi-service/pkg/server/framework"
+	"github.com/extrimian/ssi-service/config"
+	"github.com/extrimian/ssi-service/pkg/server/framework"
 
 	"go.opentelemetry.io/otel/trace"
 )

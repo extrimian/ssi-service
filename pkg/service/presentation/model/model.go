@@ -1,17 +1,17 @@
 package model
 
 import (
-	credsdk "github.com/TBD54566975/ssi-sdk/credential"
-	"github.com/TBD54566975/ssi-sdk/credential/exchange"
-	"github.com/TBD54566975/ssi-sdk/util"
+	credsdk "github.com/extrimian/ssi-sdk/credential"
+	"github.com/extrimian/ssi-sdk/credential/exchange"
+	"github.com/extrimian/ssi-sdk/util"
+	"github.com/extrimian/ssi-service/pkg/server/pagination"
+	"github.com/extrimian/ssi-service/pkg/service/common"
 	"github.com/goccy/go-json"
-	"github.com/tbd54566975/ssi-service/pkg/server/pagination"
-	"github.com/tbd54566975/ssi-service/pkg/service/common"
 	"go.einride.tech/aip/filtering"
 
-	"github.com/tbd54566975/ssi-service/internal/credential"
-	"github.com/tbd54566975/ssi-service/internal/keyaccess"
-	"github.com/tbd54566975/ssi-service/pkg/service/presentation/storage"
+	"github.com/extrimian/ssi-service/internal/credential"
+	"github.com/extrimian/ssi-service/internal/keyaccess"
+	"github.com/extrimian/ssi-service/pkg/service/presentation/storage"
 )
 
 type CreatePresentationDefinitionRequest struct {

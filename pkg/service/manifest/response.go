@@ -6,23 +6,23 @@ import (
 	"strings"
 	"time"
 
-	"github.com/TBD54566975/ssi-sdk/credential/exchange"
-	"github.com/TBD54566975/ssi-sdk/credential/manifest"
-	"github.com/TBD54566975/ssi-sdk/credential/parsing"
-	"github.com/TBD54566975/ssi-sdk/did"
-	errresp "github.com/TBD54566975/ssi-sdk/error"
-	sdkutil "github.com/TBD54566975/ssi-sdk/util"
+	"github.com/extrimian/ssi-sdk/credential/exchange"
+	"github.com/extrimian/ssi-sdk/credential/manifest"
+	"github.com/extrimian/ssi-sdk/credential/parsing"
+	"github.com/extrimian/ssi-sdk/did"
+	errresp "github.com/extrimian/ssi-sdk/error"
+	sdkutil "github.com/extrimian/ssi-sdk/util"
 	"github.com/goccy/go-json"
 	"github.com/oliveagle/jsonpath"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 
-	cred "github.com/tbd54566975/ssi-service/internal/credential"
-	"github.com/tbd54566975/ssi-service/internal/keyaccess"
-	"github.com/tbd54566975/ssi-service/pkg/service/credential"
-	"github.com/tbd54566975/ssi-service/pkg/service/issuance"
-	"github.com/tbd54566975/ssi-service/pkg/service/keystore"
-	"github.com/tbd54566975/ssi-service/pkg/service/manifest/model"
+	cred "github.com/extrimian/ssi-service/internal/credential"
+	"github.com/extrimian/ssi-service/internal/keyaccess"
+	"github.com/extrimian/ssi-service/pkg/service/credential"
+	"github.com/extrimian/ssi-service/pkg/service/issuance"
+	"github.com/extrimian/ssi-service/pkg/service/keystore"
+	"github.com/extrimian/ssi-service/pkg/service/manifest/model"
 )
 
 const (
@@ -257,7 +257,7 @@ func toCredentialJSON(c any) (map[string]any, error) {
 	return credJSON, nil
 }
 
-// TODO(gabe) add applicant to response id once https://github.com/TBD54566975/ssi-sdk/issues/372 is in
+// TODO(gabe) add applicant to response id once https://github.com/extrimian/ssi-sdk/issues/372 is in
 func buildDenialCredentialResponse(manifestID, applicantDID, applicationID, reason string, failedOutputDescriptorIDs ...string) (*manifest.CredentialResponse, error) {
 	builder := manifest.NewCredentialResponseBuilder(manifestID)
 	if err := builder.SetApplicationID(applicationID); err != nil {

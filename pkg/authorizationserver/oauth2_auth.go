@@ -3,14 +3,14 @@ package authorizationserver
 import (
 	"fmt"
 
-	"github.com/TBD54566975/ssi-sdk/oidc/issuance"
+	"github.com/extrimian/ssi-sdk/oidc/issuance"
 	"github.com/gin-gonic/gin"
 	"github.com/goccy/go-json"
 	"github.com/ory/fosite"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 
-	"github.com/tbd54566975/ssi-service/pkg/authorizationserver/request"
+	"github.com/extrimian/ssi-service/pkg/authorizationserver/request"
 )
 
 type AuthService struct {
@@ -56,7 +56,7 @@ func (s AuthService) AuthEndpoint(c *gin.Context) {
 					s.provider.WriteAuthorizeError(c, c.Writer, ar, err)
 					return
 				}
-				// TODO(https://github.com/TBD54566975/ssi-service/issues/368): support dynamic auth request
+				// TODO(https://github.com/extrimian/ssi-service/issues/368): support dynamic auth request
 
 			default:
 				err := errors.Errorf("the value of authorization_details[%d].type found was %q, which is not recognized", i, d.Type)

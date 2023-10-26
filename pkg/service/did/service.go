@@ -1,19 +1,22 @@
 package did
 
 import (
+	"bytes"
 	"context"
+	"encoding/json"
 	"fmt"
+	"net/http"
 
-	didsdk "github.com/TBD54566975/ssi-sdk/did"
-	didresolution "github.com/TBD54566975/ssi-sdk/did/resolution"
-	sdkutil "github.com/TBD54566975/ssi-sdk/util"
+	didsdk "github.com/extrimian/ssi-sdk/did"
+	didresolution "github.com/extrimian/ssi-sdk/did/resolution"
+	sdkutil "github.com/extrimian/ssi-sdk/util"
 	"github.com/pkg/errors"
 
-	"github.com/tbd54566975/ssi-service/config"
-	"github.com/tbd54566975/ssi-service/pkg/service/did/resolution"
-	"github.com/tbd54566975/ssi-service/pkg/service/framework"
-	"github.com/tbd54566975/ssi-service/pkg/service/keystore"
-	"github.com/tbd54566975/ssi-service/pkg/storage"
+	"github.com/extrimian/ssi-service/config"
+	"github.com/extrimian/ssi-service/pkg/service/did/resolution"
+	"github.com/extrimian/ssi-service/pkg/service/framework"
+	"github.com/extrimian/ssi-service/pkg/service/keystore"
+	"github.com/extrimian/ssi-service/pkg/storage"
 )
 
 type Service struct {
@@ -131,6 +134,12 @@ func (s *Service) instantiateHandlerForMethod(method didsdk.Method) error {
 			return errors.Wrap(err, "instantiating ion handler")
 		}
 		s.handlers[method] = ih
+	case didsdk.QuarkidMethod:
+		qh, err := NewQuarkidHandler()
+		if err != nil {
+			return errors.Wrap(err, "instantiating quarkid handler")
+		}
+		s.handlers[method] = qh
 	default:
 		return sdkutil.LoggingNewErrorf("unsupported DID method: %s", method)
 	}
@@ -235,4 +244,96 @@ func (s *Service) getHandler(method didsdk.Method) (MethodHandler, error) {
 		return nil, sdkutil.LoggingNewErrorf("could not get handler for DID method: %s", method)
 	}
 	return handler, nil
+}
+
+func (s *Service) CreateQuarkidDID() (QuarkidIdentityResponse, error) {
+	bbsJwk, err := s.createBbsPubKey()
+	if err != nil {
+		fmt.Println("error creating bbs public key")
+		return QuarkidIdentityResponse{}, err
+	}
+
+	didCommJwk, err := s.createDIDCommPubKey()
+	if err != nil {
+		fmt.Println("error creating didcomm public key")
+		return QuarkidIdentityResponse{}, err
+	}
+
+	identityRequest := identityRequest{
+		PublicKeys: []publicKeyIdentityRequest{
+			{
+				VmId:                     "bbs",
+				PublicKeyJWK:             bbsJwk.PublicKeyJWK,
+				VerificationRelationship: "assertionMethod",
+			}, {
+				VmId:                     "didcomm",
+				PublicKeyJWK:             didCommJwk.PublicKeyJWK,
+				VerificationRelationship: "keyAgreement",
+			}},
+		DidMethod: "did:quarkid:zksync",
+	}
+
+	json_data, err := json.Marshal(identityRequest)
+	if err != nil {
+		fmt.Println("error marshaling identity request")
+		return QuarkidIdentityResponse{}, err
+	}
+
+	resp, err := http.Post("http://localhost:3010/identity", "application/json", bytes.NewBuffer(json_data))
+	if err != nil {
+		fmt.Println("error posting identity request")
+		return QuarkidIdentityResponse{}, err
+	}
+
+	defer resp.Body.Close()
+
+	var response QuarkidIdentityResponse
+	json.NewDecoder(resp.Body).Decode(&response)
+
+	return response, nil
+}
+
+func (s *Service) createBbsPubKey() (PublicKeyResponse, error) {
+	var response PublicKeyResponse
+	resp, err := http.Post("http://localhost:3010/bbs", "", nil)
+	if err != nil {
+		fmt.Println("error posting bbs request")
+		return PublicKeyResponse{}, err
+	}
+
+	defer resp.Body.Close()
+
+	json.NewDecoder(resp.Body).Decode(&response)
+
+	return response, nil
+}
+
+func (s *Service) createDIDCommPubKey() (PublicKeyResponse, error) {
+	var response PublicKeyResponse
+	resp, err := http.Post("http://localhost:3010/didcomm", "", nil)
+	if err != nil {
+		fmt.Println("error posting didcomm request")
+		return PublicKeyResponse{}, err
+	}
+
+	defer resp.Body.Close()
+
+	json.NewDecoder(resp.Body).Decode(&response)
+
+	return response, nil
+}
+
+func (s *Service) GetQuarkidDID(id string) (QuarkidIdentity, error) {
+	var response QuarkidIdentity
+	resp, err := http.Get(fmt.Sprintf("http://localhost:3010/identity/%s", id))
+	if err != nil {
+		fmt.Println("error getting quarkid did request")
+		return QuarkidIdentity{}, err
+	}
+
+	defer resp.Body.Close()
+
+	json.NewDecoder(resp.Body).Decode(&response)
+
+	return response, nil
 }

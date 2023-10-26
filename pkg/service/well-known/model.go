@@ -1,9 +1,9 @@
 package wellknown
 
 import (
+	"github.com/extrimian/ssi-service/internal/credential"
 	"github.com/goccy/go-json"
 	"github.com/pkg/errors"
-	"github.com/tbd54566975/ssi-service/internal/credential"
 )
 
 type CreateDIDConfigurationRequest struct {

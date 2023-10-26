@@ -3,7 +3,7 @@ package schema
 import (
 	"context"
 
-	"github.com/TBD54566975/ssi-sdk/credential/schema"
+	"github.com/extrimian/ssi-sdk/credential/schema"
 )
 
 // Resolution is an interface that defines a generic method of resolving a schema

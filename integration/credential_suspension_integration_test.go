@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/TBD54566975/ssi-sdk/credential"
-	"github.com/TBD54566975/ssi-sdk/credential/status"
+	"github.com/extrimian/ssi-sdk/credential"
+	"github.com/extrimian/ssi-sdk/credential/status"
 	"github.com/goccy/go-json"
 	"github.com/stretchr/testify/assert"
 )

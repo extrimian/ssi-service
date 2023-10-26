@@ -5,19 +5,19 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/TBD54566975/ssi-sdk/crypto"
-	didsdk "github.com/TBD54566975/ssi-sdk/did"
-	"github.com/TBD54566975/ssi-sdk/did/ion"
-	"github.com/TBD54566975/ssi-sdk/did/resolution"
+	"github.com/extrimian/ssi-sdk/crypto"
+	didsdk "github.com/extrimian/ssi-sdk/did"
+	"github.com/extrimian/ssi-sdk/did/ion"
+	"github.com/extrimian/ssi-sdk/did/resolution"
 	"github.com/gin-gonic/gin"
 	"github.com/goccy/go-json"
 	"github.com/pkg/errors"
 
-	"github.com/tbd54566975/ssi-service/internal/util"
-	"github.com/tbd54566975/ssi-service/pkg/server/framework"
-	"github.com/tbd54566975/ssi-service/pkg/server/pagination"
-	"github.com/tbd54566975/ssi-service/pkg/service/did"
-	svcframework "github.com/tbd54566975/ssi-service/pkg/service/framework"
+	"github.com/extrimian/ssi-service/internal/util"
+	"github.com/extrimian/ssi-service/pkg/server/framework"
+	"github.com/extrimian/ssi-service/pkg/server/pagination"
+	"github.com/extrimian/ssi-service/pkg/service/did"
+	svcframework "github.com/extrimian/ssi-service/pkg/service/framework"
 )
 
 const (
@@ -468,6 +468,31 @@ func (dr DIDRouter) ResolveDID(c *gin.Context) {
 
 	resp := ResolveDIDResponse{ResolutionMetadata: resolvedDID.ResolutionMetadata, DIDDocument: resolvedDID.DIDDocument, DIDDocumentMetadata: resolvedDID.DIDDocumentMetadata}
 	framework.Respond(c, resp, http.StatusOK)
+}
+
+func (dr DIDRouter) CreateQuarkidDID(c *gin.Context) {
+	did, err := dr.service.CreateQuarkidDID()
+	if err != nil {
+		framework.LoggingRespondErrMsg(c, err.Error(), http.StatusNotFound)
+		return
+	}
+	framework.Respond(c, did, http.StatusOK)
+}
+
+func (dr DIDRouter) GetQuarkidDID(c *gin.Context) {
+	id := framework.GetParam(c, IDParam)
+	if id == nil {
+		errMsg := fmt.Sprintf("get quarkid DID request missing id parameter")
+		framework.LoggingRespondErrMsg(c, errMsg, http.StatusBadRequest)
+		return
+	}
+
+	did, err := dr.service.GetQuarkidDID(*id)
+	if err != nil {
+		framework.LoggingRespondErrMsg(c, err.Error(), http.StatusNotFound)
+		return
+	}
+	framework.Respond(c, did, http.StatusOK)
 }
 
 type BatchCreateDIDsRequest struct {

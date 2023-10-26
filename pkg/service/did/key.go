@@ -4,14 +4,14 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/TBD54566975/ssi-sdk/crypto"
-	"github.com/TBD54566975/ssi-sdk/did"
-	"github.com/TBD54566975/ssi-sdk/did/key"
+	"github.com/extrimian/ssi-sdk/crypto"
+	"github.com/extrimian/ssi-sdk/did"
+	"github.com/extrimian/ssi-sdk/did/key"
+	"github.com/extrimian/ssi-service/pkg/service/common"
+	"github.com/extrimian/ssi-service/pkg/service/keystore"
 	"github.com/mr-tron/base58"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
-	"github.com/tbd54566975/ssi-service/pkg/service/common"
-	"github.com/tbd54566975/ssi-service/pkg/service/keystore"
 )
 
 func NewKeyHandler(s *Storage, ks *keystore.Service) (MethodHandler, error) {

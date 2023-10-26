@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/TBD54566975/ssi-sdk/oidc/issuance"
+	"github.com/extrimian/ssi-sdk/oidc/issuance"
 	"github.com/gin-gonic/gin"
 	"github.com/goccy/go-json"
 	"github.com/ory/fosite"
@@ -16,9 +16,9 @@ import (
 	"github.com/ory/fosite/token/jwt"
 	"github.com/sirupsen/logrus"
 
-	"github.com/tbd54566975/ssi-service/config"
-	"github.com/tbd54566975/ssi-service/pkg/server/framework"
-	"github.com/tbd54566975/ssi-service/pkg/server/middleware"
+	"github.com/extrimian/ssi-service/config"
+	"github.com/extrimian/ssi-service/pkg/server/framework"
+	"github.com/extrimian/ssi-service/pkg/server/middleware"
 )
 
 // A session is passed from the `/auth` to the `/token` endpoint. You probably want to store data like: "Who made the request",

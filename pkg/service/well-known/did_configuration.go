@@ -9,20 +9,20 @@ import (
 	"strings"
 	"time"
 
-	"github.com/TBD54566975/ssi-sdk/credential"
-	"github.com/TBD54566975/ssi-sdk/credential/integrity"
-	"github.com/TBD54566975/ssi-sdk/did"
-	"github.com/TBD54566975/ssi-sdk/did/resolution"
+	"github.com/extrimian/ssi-sdk/credential"
+	"github.com/extrimian/ssi-sdk/credential/integrity"
+	"github.com/extrimian/ssi-sdk/did"
+	"github.com/extrimian/ssi-sdk/did/resolution"
 	"github.com/goccy/go-json"
 	"github.com/pkg/errors"
 	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
 
-	credint "github.com/tbd54566975/ssi-service/internal/credential"
-	"github.com/tbd54566975/ssi-service/internal/util"
-	"github.com/tbd54566975/ssi-service/internal/verification"
-	svcframework "github.com/tbd54566975/ssi-service/pkg/service/framework"
-	"github.com/tbd54566975/ssi-service/pkg/service/keystore"
-	"github.com/tbd54566975/ssi-service/pkg/service/schema"
+	credint "github.com/extrimian/ssi-service/internal/credential"
+	"github.com/extrimian/ssi-service/internal/util"
+	"github.com/extrimian/ssi-service/internal/verification"
+	svcframework "github.com/extrimian/ssi-service/pkg/service/framework"
+	"github.com/extrimian/ssi-service/pkg/service/keystore"
+	"github.com/extrimian/ssi-service/pkg/service/schema"
 )
 
 type DIDConfigurationService struct {

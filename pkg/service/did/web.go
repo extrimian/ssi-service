@@ -4,15 +4,15 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/TBD54566975/ssi-sdk/crypto"
-	"github.com/TBD54566975/ssi-sdk/did"
-	"github.com/TBD54566975/ssi-sdk/did/web"
-	"github.com/TBD54566975/ssi-sdk/util"
+	"github.com/extrimian/ssi-sdk/crypto"
+	"github.com/extrimian/ssi-sdk/did"
+	"github.com/extrimian/ssi-sdk/did/web"
+	"github.com/extrimian/ssi-sdk/util"
+	"github.com/extrimian/ssi-service/pkg/service/common"
+	"github.com/extrimian/ssi-service/pkg/service/keystore"
 	"github.com/mr-tron/base58"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
-	"github.com/tbd54566975/ssi-service/pkg/service/common"
-	"github.com/tbd54566975/ssi-service/pkg/service/keystore"
 )
 
 func NewWebHandler(s *Storage, ks *keystore.Service) (MethodHandler, error) {

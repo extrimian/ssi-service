@@ -5,19 +5,19 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/TBD54566975/ssi-sdk/crypto"
-	sdkutil "github.com/TBD54566975/ssi-sdk/util"
+	"github.com/extrimian/ssi-sdk/crypto"
+	sdkutil "github.com/extrimian/ssi-sdk/util"
 	"github.com/mr-tron/base58"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"golang.org/x/crypto/chacha20poly1305"
 
-	"github.com/tbd54566975/ssi-service/config"
-	"github.com/tbd54566975/ssi-service/internal/encryption"
-	"github.com/tbd54566975/ssi-service/internal/keyaccess"
-	"github.com/tbd54566975/ssi-service/internal/util"
-	"github.com/tbd54566975/ssi-service/pkg/service/framework"
-	"github.com/tbd54566975/ssi-service/pkg/storage"
+	"github.com/extrimian/ssi-service/config"
+	"github.com/extrimian/ssi-service/internal/encryption"
+	"github.com/extrimian/ssi-service/internal/keyaccess"
+	"github.com/extrimian/ssi-service/internal/util"
+	"github.com/extrimian/ssi-service/pkg/service/framework"
+	"github.com/extrimian/ssi-service/pkg/storage"
 )
 
 type ServiceFactory func(storage.Tx) (*Service, error)

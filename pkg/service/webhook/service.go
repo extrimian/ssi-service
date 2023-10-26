@@ -9,16 +9,16 @@ import (
 	"sync"
 	"time"
 
-	sdkutil "github.com/TBD54566975/ssi-sdk/util"
+	sdkutil "github.com/extrimian/ssi-sdk/util"
 	"github.com/gin-gonic/gin"
 	"github.com/goccy/go-json"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 
-	"github.com/tbd54566975/ssi-service/config"
-	"github.com/tbd54566975/ssi-service/internal/util"
-	"github.com/tbd54566975/ssi-service/pkg/service/framework"
-	"github.com/tbd54566975/ssi-service/pkg/storage"
+	"github.com/extrimian/ssi-service/config"
+	"github.com/extrimian/ssi-service/internal/util"
+	"github.com/extrimian/ssi-service/pkg/service/framework"
+	"github.com/extrimian/ssi-service/pkg/storage"
 
 	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
 )

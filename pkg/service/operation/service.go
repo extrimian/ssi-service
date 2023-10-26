@@ -5,20 +5,20 @@ import (
 	"fmt"
 	"strings"
 
-	sdkutil "github.com/TBD54566975/ssi-sdk/util"
+	sdkutil "github.com/extrimian/ssi-sdk/util"
 	"github.com/goccy/go-json"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 
-	"github.com/tbd54566975/ssi-service/pkg/service/framework"
-	manifestmodel "github.com/tbd54566975/ssi-service/pkg/service/manifest/model"
-	manifeststg "github.com/tbd54566975/ssi-service/pkg/service/manifest/storage"
-	"github.com/tbd54566975/ssi-service/pkg/service/operation/credential"
-	opstorage "github.com/tbd54566975/ssi-service/pkg/service/operation/storage"
-	"github.com/tbd54566975/ssi-service/pkg/service/operation/submission"
-	"github.com/tbd54566975/ssi-service/pkg/service/presentation/model"
-	prestorage "github.com/tbd54566975/ssi-service/pkg/service/presentation/storage"
-	"github.com/tbd54566975/ssi-service/pkg/storage"
+	"github.com/extrimian/ssi-service/pkg/service/framework"
+	manifestmodel "github.com/extrimian/ssi-service/pkg/service/manifest/model"
+	manifeststg "github.com/extrimian/ssi-service/pkg/service/manifest/storage"
+	"github.com/extrimian/ssi-service/pkg/service/operation/credential"
+	opstorage "github.com/extrimian/ssi-service/pkg/service/operation/storage"
+	"github.com/extrimian/ssi-service/pkg/service/operation/submission"
+	"github.com/extrimian/ssi-service/pkg/service/presentation/model"
+	prestorage "github.com/extrimian/ssi-service/pkg/service/presentation/storage"
+	"github.com/extrimian/ssi-service/pkg/storage"
 )
 
 type Service struct {

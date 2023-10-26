@@ -4,16 +4,16 @@ import (
 	"context"
 	"testing"
 
-	credschema "github.com/TBD54566975/ssi-sdk/credential/schema"
-	"github.com/TBD54566975/ssi-sdk/crypto"
-	didsdk "github.com/TBD54566975/ssi-sdk/did"
+	credschema "github.com/extrimian/ssi-sdk/credential/schema"
+	"github.com/extrimian/ssi-sdk/crypto"
+	didsdk "github.com/extrimian/ssi-sdk/did"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/tbd54566975/ssi-service/pkg/service/did"
-	"github.com/tbd54566975/ssi-service/pkg/service/framework"
-	"github.com/tbd54566975/ssi-service/pkg/service/keystore"
-	"github.com/tbd54566975/ssi-service/pkg/service/schema"
-	"github.com/tbd54566975/ssi-service/pkg/testutil"
+	"github.com/extrimian/ssi-service/pkg/service/did"
+	"github.com/extrimian/ssi-service/pkg/service/framework"
+	"github.com/extrimian/ssi-service/pkg/service/keystore"
+	"github.com/extrimian/ssi-service/pkg/service/schema"
+	"github.com/extrimian/ssi-service/pkg/testutil"
 )
 
 func TestSchemaRouter(t *testing.T) {

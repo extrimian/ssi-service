@@ -8,11 +8,11 @@ import (
 	"reflect"
 	"strconv"
 
+	"github.com/extrimian/ssi-service/pkg/server/framework"
+	"github.com/extrimian/ssi-service/pkg/service/common"
 	"github.com/gin-gonic/gin"
 	"github.com/goccy/go-json"
 	"github.com/sirupsen/logrus"
-	"github.com/tbd54566975/ssi-service/pkg/server/framework"
-	"github.com/tbd54566975/ssi-service/pkg/service/common"
 )
 
 type PageToken struct {

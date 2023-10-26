@@ -6,8 +6,8 @@ import (
 	"io"
 	"net/http"
 
-	didsdk "github.com/TBD54566975/ssi-sdk/did"
-	"github.com/TBD54566975/ssi-sdk/did/resolution"
+	didsdk "github.com/extrimian/ssi-sdk/did"
+	"github.com/extrimian/ssi-sdk/did/resolution"
 	"github.com/goccy/go-json"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"

@@ -6,19 +6,19 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/TBD54566975/ssi-sdk/credential/integrity"
-	"github.com/TBD54566975/ssi-sdk/did/resolution"
+	"github.com/extrimian/ssi-sdk/credential/integrity"
+	"github.com/extrimian/ssi-sdk/did/resolution"
 	"github.com/goccy/go-json"
 	"github.com/stretchr/testify/assert"
 	"gopkg.in/h2non/gock.v1"
 
-	"github.com/tbd54566975/ssi-service/internal/util"
-	"github.com/tbd54566975/ssi-service/pkg/server/router"
-	"github.com/tbd54566975/ssi-service/pkg/service/did"
-	"github.com/tbd54566975/ssi-service/pkg/service/keystore"
-	"github.com/tbd54566975/ssi-service/pkg/service/schema"
-	wellknown "github.com/tbd54566975/ssi-service/pkg/service/well-known"
-	"github.com/tbd54566975/ssi-service/pkg/testutil"
+	"github.com/extrimian/ssi-service/internal/util"
+	"github.com/extrimian/ssi-service/pkg/server/router"
+	"github.com/extrimian/ssi-service/pkg/service/did"
+	"github.com/extrimian/ssi-service/pkg/service/keystore"
+	"github.com/extrimian/ssi-service/pkg/service/schema"
+	wellknown "github.com/extrimian/ssi-service/pkg/service/well-known"
+	"github.com/extrimian/ssi-service/pkg/testutil"
 )
 
 const w3cCredentialContext = `{

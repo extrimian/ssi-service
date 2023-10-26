@@ -3,13 +3,13 @@ package did
 import (
 	"context"
 
-	didsdk "github.com/TBD54566975/ssi-sdk/did"
+	didsdk "github.com/extrimian/ssi-sdk/did"
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
 
-	"github.com/tbd54566975/ssi-service/config"
-	"github.com/tbd54566975/ssi-service/pkg/service/keystore"
-	"github.com/tbd54566975/ssi-service/pkg/storage"
+	"github.com/extrimian/ssi-service/config"
+	"github.com/extrimian/ssi-service/pkg/service/keystore"
+	"github.com/extrimian/ssi-service/pkg/storage"
 )
 
 type BatchService struct {

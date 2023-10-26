@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	didsdk "github.com/TBD54566975/ssi-sdk/did"
+	didsdk "github.com/extrimian/ssi-sdk/did"
 	"github.com/stretchr/testify/assert"
 )
 

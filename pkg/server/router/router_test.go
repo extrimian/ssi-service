@@ -1,10 +1,10 @@
 package router
 
 import (
-	didsdk "github.com/TBD54566975/ssi-sdk/did"
+	didsdk "github.com/extrimian/ssi-sdk/did"
 
-	"github.com/tbd54566975/ssi-service/config"
-	"github.com/tbd54566975/ssi-service/pkg/service/framework"
+	"github.com/extrimian/ssi-service/config"
+	"github.com/extrimian/ssi-service/pkg/service/framework"
 )
 
 // generic test config to be used by all tests in this package

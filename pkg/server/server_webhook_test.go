@@ -18,12 +18,12 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/tbd54566975/ssi-service/config"
-	"github.com/tbd54566975/ssi-service/internal/util"
-	"github.com/tbd54566975/ssi-service/pkg/server/router"
-	"github.com/tbd54566975/ssi-service/pkg/service/webhook"
-	"github.com/tbd54566975/ssi-service/pkg/storage"
-	"github.com/tbd54566975/ssi-service/pkg/testutil"
+	"github.com/extrimian/ssi-service/config"
+	"github.com/extrimian/ssi-service/internal/util"
+	"github.com/extrimian/ssi-service/pkg/server/router"
+	"github.com/extrimian/ssi-service/pkg/service/webhook"
+	"github.com/extrimian/ssi-service/pkg/storage"
+	"github.com/extrimian/ssi-service/pkg/testutil"
 )
 
 func freePort() string {

@@ -4,11 +4,11 @@ import (
 	"context"
 	"time"
 
-	"github.com/TBD54566975/ssi-sdk/did"
+	"github.com/extrimian/ssi-sdk/did"
+	"github.com/extrimian/ssi-service/pkg/service/keystore"
 	"github.com/google/uuid"
 	"github.com/lestrrat-go/jwx/v2/jwt"
 	"github.com/pkg/errors"
-	"github.com/tbd54566975/ssi-service/pkg/service/keystore"
 )
 
 type Request struct {

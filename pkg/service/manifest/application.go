@@ -5,17 +5,17 @@ import (
 	"fmt"
 	"strings"
 
-	sdkutil "github.com/TBD54566975/ssi-sdk/util"
+	sdkutil "github.com/extrimian/ssi-sdk/util"
 	"github.com/lestrrat-go/jwx/v2/jws"
 
-	didint "github.com/tbd54566975/ssi-service/internal/did"
-	"github.com/tbd54566975/ssi-service/internal/keyaccess"
-	"github.com/tbd54566975/ssi-service/pkg/service/manifest/model"
+	didint "github.com/extrimian/ssi-service/internal/did"
+	"github.com/extrimian/ssi-service/internal/keyaccess"
+	"github.com/extrimian/ssi-service/pkg/service/manifest/model"
 
-	"github.com/TBD54566975/ssi-sdk/credential/manifest"
-	errresp "github.com/TBD54566975/ssi-sdk/error"
+	"github.com/extrimian/ssi-sdk/credential/manifest"
+	errresp "github.com/extrimian/ssi-sdk/error"
 
-	"github.com/tbd54566975/ssi-service/pkg/service/credential"
+	"github.com/extrimian/ssi-service/pkg/service/credential"
 )
 
 // validateCredentialApplication validates the credential application's signature(s) in addition to making sure it

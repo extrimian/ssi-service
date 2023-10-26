@@ -1,8 +1,8 @@
-[![godoc ssi-service](https://img.shields.io/badge/godoc-ssi--service-blue)](https://github.com/TBD54566975/ssi-service)
+[![godoc ssi-service](https://img.shields.io/badge/godoc-ssi--service-blue)](https://github.com/extrimian/ssi-service)
 [![go version 1.20.7](https://img.shields.io/badge/go_version-1.20.7-brightgreen)](https://go.dev/)
-[![license Apache 2](https://img.shields.io/badge/license-Apache%202-black)](https://github.com/TBD54566975/ssi-service/blob/main/LICENSE)
-[![issues](https://img.shields.io/github/issues/TBD54566975/ssi-service)](https://github.com/TBD54566975/ssi-service/issues)
-![push](https://github.com/TBD54566975/ssi-service/workflows/ssi-service-ci/badge.svg?branch=main&event=push)
+[![license Apache 2](https://img.shields.io/badge/license-Apache%202-black)](https://github.com/extrimian/ssi-service/blob/main/LICENSE)
+[![issues](https://img.shields.io/github/issues/TBD54566975/ssi-service)](https://github.com/extrimian/ssi-service/issues)
+![push](https://github.com/extrimian/ssi-service/workflows/ssi-service-ci/badge.svg?branch=main&event=push)
 
 # ssi-service
 
@@ -10,7 +10,7 @@ The Self Sovereign Identity Service (SSIS) is a RESTful web service that facilit
 to [DIDs](https://www.w3.org/TR/did-core/),
 [Verifiable Credentials](https://www.w3.org/TR/vc-data-model) and their related standards-based interactions. Most of
 the functionality in this service
-relies upon the SSI primitives exposed in the [SSI-SDK](https://github.com/TBD54566975/ssi-sdk) project.
+relies upon the SSI primitives exposed in the [SSI-SDK](https://github.com/extrimian/ssi-sdk) project.
 
 ## Core Functionality
 
@@ -36,7 +36,7 @@ The vision for the project is laid out in [this document](doc/service/vision.md)
 
 The project follows a proposal-based improvement format called [SIPs, outlined here](sip/README.md).
 
-Please [join Discord](https://discord.com/invite/tbd), or open an [issue](https://github.com/TBD54566975/ssi-service/issues) if you are interested in helping shape the future of the
+Please [join Discord](https://discord.com/invite/tbd), or open an [issue](https://github.com/extrimian/ssi-service/issues) if you are interested in helping shape the future of the
 project.
 
 ### API Documentation
@@ -57,7 +57,7 @@ and more! The docs can be found [in our docs here](doc/README.md).
 
 ### Local Development
 This project uses [mage](https://magefile.org/), please
-view [CONTRIBUTING](https://github.com/TBD54566975/ssi-service/blob/main/CONTRIBUTING.md) for more information.
+view [CONTRIBUTING](https://github.com/extrimian/ssi-service/blob/main/CONTRIBUTING.md) for more information.
 
 After installing mage, you can build and test the SDK with the following commands:
 
@@ -74,7 +74,7 @@ mage cblt
 
 ### Continuous Integration
 
-CI is managed via [GitHub Actions](https://github.com/TBD54566975/ssi-service/actions). Actions are triggered to run for
+CI is managed via [GitHub Actions](https://github.com/extrimian/ssi-service/actions). Actions are triggered to run for
 each Pull Request, and on merge to `main`.
 You can run CI locally using a tool like [act](https://github.com/nektos/act).
 
@@ -165,13 +165,13 @@ Run to check if all services are up and ready (credential, did, and schema):
 
 | Resource                                                                                   | Description                                                                   |
 |--------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-| [Components Readme](https://github.com/TBD54566975/ssi-service/blob/main/doc/README.md)    | Documentation for various components of the SSI Service                       |
-| [VISION](https://github.com/TBD54566975/ssi-service/blob/main/doc/VISION.md)               | Outlines the project vision                                                   |
+| [Components Readme](https://github.com/extrimian/ssi-service/blob/main/doc/README.md)    | Documentation for various components of the SSI Service                       |
+| [VISION](https://github.com/extrimian/ssi-service/blob/main/doc/VISION.md)               | Outlines the project vision                                                   |
 | [SIPs](sip/README.md)                                                                      | Proposals for improving the SSI Service                                       |
-| [VERSIONING](https://github.com/TBD54566975/ssi-service/blob/main/doc/VERSIONING.md)       | Project versioning strategy                                                   |
-| [CODEOWNERS](https://github.com/TBD54566975/ssi-service/blob/main/CODEOWNERS)              | Outlines the project lead(s)                                                  |
-| [CODE_OF_CONDUCT](https://github.com/TBD54566975/ssi-service/blob/main/CODE_OF_CONDUCT.md) | Expected behavior for project contributors, promoting a welcoming environment |
-| [CONTRIBUTING](https://github.com/TBD54566975/ssi-service/blob/main/CONTRIBUTING.md)       | Developer guide to build, test, run, access CI, chat, discuss, file issues    |
-| [GOVERNANCE](https://github.com/TBD54566975/ssi-service/blob/main/GOVERNANCE.md)           | Project governance                                                            |
-| [SECURITY](https://github.com/TBD54566975/ssi-service/blob/main/SECURITY.md)               | Vulnerability and bug reporting                                               |
-| [LICENSE](https://github.com/TBD54566975/ssi-service/blob/main/LICENSE)                    | Apache License, Version 2.0                                                   |
+| [VERSIONING](https://github.com/extrimian/ssi-service/blob/main/doc/VERSIONING.md)       | Project versioning strategy                                                   |
+| [CODEOWNERS](https://github.com/extrimian/ssi-service/blob/main/CODEOWNERS)              | Outlines the project lead(s)                                                  |
+| [CODE_OF_CONDUCT](https://github.com/extrimian/ssi-service/blob/main/CODE_OF_CONDUCT.md) | Expected behavior for project contributors, promoting a welcoming environment |
+| [CONTRIBUTING](https://github.com/extrimian/ssi-service/blob/main/CONTRIBUTING.md)       | Developer guide to build, test, run, access CI, chat, discuss, file issues    |
+| [GOVERNANCE](https://github.com/extrimian/ssi-service/blob/main/GOVERNANCE.md)           | Project governance                                                            |
+| [SECURITY](https://github.com/extrimian/ssi-service/blob/main/SECURITY.md)               | Vulnerability and bug reporting                                               |
+| [LICENSE](https://github.com/extrimian/ssi-service/blob/main/LICENSE)                    | Apache License, Version 2.0                                                   |

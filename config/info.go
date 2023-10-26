@@ -3,7 +3,7 @@ package config
 import (
 	"strings"
 
-	"github.com/tbd54566975/ssi-service/pkg/service/framework"
+	"github.com/extrimian/ssi-service/pkg/service/framework"
 )
 
 const (

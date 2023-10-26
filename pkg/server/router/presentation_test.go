@@ -7,19 +7,19 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TBD54566975/ssi-sdk/credential/exchange"
-	"github.com/TBD54566975/ssi-sdk/crypto"
-	didsdk "github.com/TBD54566975/ssi-sdk/did"
+	"github.com/extrimian/ssi-sdk/credential/exchange"
+	"github.com/extrimian/ssi-sdk/crypto"
+	didsdk "github.com/extrimian/ssi-sdk/did"
 	"github.com/goccy/go-json"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/tbd54566975/ssi-service/internal/keyaccess"
-	"github.com/tbd54566975/ssi-service/pkg/service/common"
-	"github.com/tbd54566975/ssi-service/pkg/service/did"
-	"github.com/tbd54566975/ssi-service/pkg/service/presentation"
-	"github.com/tbd54566975/ssi-service/pkg/service/presentation/model"
-	"github.com/tbd54566975/ssi-service/pkg/testutil"
+	"github.com/extrimian/ssi-service/internal/keyaccess"
+	"github.com/extrimian/ssi-service/pkg/service/common"
+	"github.com/extrimian/ssi-service/pkg/service/did"
+	"github.com/extrimian/ssi-service/pkg/service/presentation"
+	"github.com/extrimian/ssi-service/pkg/service/presentation/model"
+	"github.com/extrimian/ssi-service/pkg/testutil"
 )
 
 func TestPresentationDefinitionRouter(t *testing.T) {

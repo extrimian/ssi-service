@@ -4,15 +4,15 @@ import (
 	"context"
 	"testing"
 
-	"github.com/TBD54566975/ssi-sdk/crypto"
+	"github.com/extrimian/ssi-sdk/crypto"
 	"github.com/mr-tron/base58"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/tbd54566975/ssi-service/pkg/testutil"
+	"github.com/extrimian/ssi-service/pkg/testutil"
 
-	"github.com/tbd54566975/ssi-service/config"
-	"github.com/tbd54566975/ssi-service/pkg/service/framework"
-	"github.com/tbd54566975/ssi-service/pkg/service/keystore"
+	"github.com/extrimian/ssi-service/config"
+	"github.com/extrimian/ssi-service/pkg/service/framework"
+	"github.com/extrimian/ssi-service/pkg/service/keystore"
 )
 
 func TestKeyStoreRouter(t *testing.T) {

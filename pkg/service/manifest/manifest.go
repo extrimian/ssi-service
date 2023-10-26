@@ -3,14 +3,14 @@ package manifest
 import (
 	"context"
 
-	"github.com/TBD54566975/ssi-sdk/credential/manifest"
-	sdkutil "github.com/TBD54566975/ssi-sdk/util"
+	"github.com/extrimian/ssi-sdk/credential/manifest"
+	sdkutil "github.com/extrimian/ssi-sdk/util"
 	"github.com/goccy/go-json"
 	"github.com/lestrrat-go/jwx/jws"
 	"github.com/lestrrat-go/jwx/jwt"
 
-	didint "github.com/tbd54566975/ssi-service/internal/did"
-	"github.com/tbd54566975/ssi-service/internal/keyaccess"
+	didint "github.com/extrimian/ssi-service/internal/did"
+	"github.com/extrimian/ssi-service/internal/keyaccess"
 )
 
 func (s Service) verifyManifestJWT(ctx context.Context, token keyaccess.JWT) (*manifest.CredentialManifest, error) {

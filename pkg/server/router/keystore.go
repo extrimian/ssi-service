@@ -4,15 +4,15 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/TBD54566975/ssi-sdk/crypto"
-	"github.com/TBD54566975/ssi-sdk/crypto/jwx"
+	"github.com/extrimian/ssi-sdk/crypto"
+	"github.com/extrimian/ssi-sdk/crypto/jwx"
 	"github.com/gin-gonic/gin"
 	"github.com/mr-tron/base58"
 	"github.com/pkg/errors"
 
-	"github.com/tbd54566975/ssi-service/pkg/server/framework"
-	svcframework "github.com/tbd54566975/ssi-service/pkg/service/framework"
-	"github.com/tbd54566975/ssi-service/pkg/service/keystore"
+	"github.com/extrimian/ssi-service/pkg/server/framework"
+	svcframework "github.com/extrimian/ssi-service/pkg/service/framework"
+	"github.com/extrimian/ssi-service/pkg/service/keystore"
 )
 
 type KeyStoreRouter struct {

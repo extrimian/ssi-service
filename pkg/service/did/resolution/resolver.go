@@ -4,13 +4,13 @@ import (
 	"context"
 	"fmt"
 
-	didsdk "github.com/TBD54566975/ssi-sdk/did"
-	"github.com/TBD54566975/ssi-sdk/did/resolution"
+	didsdk "github.com/extrimian/ssi-sdk/did"
+	"github.com/extrimian/ssi-sdk/did/resolution"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 
-	didint "github.com/tbd54566975/ssi-service/internal/did"
-	utilint "github.com/tbd54566975/ssi-service/internal/util"
+	didint "github.com/extrimian/ssi-service/internal/did"
+	utilint "github.com/extrimian/ssi-service/internal/util"
 )
 
 // ServiceResolver is a resolver that can resolve DIDs using a combination of local and universal resolvers.
@@ -57,7 +57,7 @@ func NewServiceResolver(handlerResolver resolution.Resolver, localResolutionMeth
 // 1. Try to resolve with the handlers we have, wrapping the resulting DID in resolution result
 // 2. Try to resolve with the local resolver
 // 3. Try to resolve with the universal resolver
-// TODO(gabe) avoid caching DIDs that should be externally resolved https://github.com/TBD54566975/ssi-service/issues/361
+// TODO(gabe) avoid caching DIDs that should be externally resolved https://github.com/extrimian/ssi-service/issues/361
 func (sr *ServiceResolver) Resolve(ctx context.Context, did string, opts ...resolution.Option) (*resolution.Result, error) {
 	// check the did is valid
 	if _, err := utilint.GetMethodForDID(did); err != nil {

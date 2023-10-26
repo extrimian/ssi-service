@@ -6,7 +6,7 @@ import (
 	"github.com/goccy/go-json"
 	"github.com/pkg/errors"
 
-	"github.com/tbd54566975/ssi-service/pkg/storage"
+	"github.com/extrimian/ssi-service/pkg/storage"
 )
 
 type Storage struct {

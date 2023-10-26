@@ -11,15 +11,15 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/TBD54566975/ssi-sdk/schema"
 	"github.com/ardanlabs/conf"
+	"github.com/extrimian/ssi-sdk/schema"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/propagation"
 
-	"github.com/tbd54566975/ssi-service/config"
-	"github.com/tbd54566975/ssi-service/pkg/server"
+	"github.com/extrimian/ssi-service/config"
+	"github.com/extrimian/ssi-service/pkg/server"
 
 	"go.opentelemetry.io/otel/exporters/jaeger"
 	"go.opentelemetry.io/otel/sdk/resource"
@@ -33,7 +33,7 @@ import (
 //	@description	The Self Sovereign Identity Service: Managing DIDs, Verifiable Credentials, and more!
 //	@version		0.0.3
 //	@contact.name	TBD
-//	@contact.url	https://github.com/TBD54566975/ssi-service/issues
+//	@contact.url	https://github.com/extrimian/ssi-service/issues
 //	@contact.email	tbd-developer@squareup.com
 //	@license.name	Apache 2.0
 //	@license.url	http://www.apache.org/licenses/LICENSE-2.0.html

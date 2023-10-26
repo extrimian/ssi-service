@@ -3,10 +3,10 @@ package common
 import (
 	"context"
 
-	"github.com/TBD54566975/ssi-sdk/util"
+	"github.com/extrimian/ssi-sdk/util"
+	"github.com/extrimian/ssi-service/pkg/storage"
 	"github.com/goccy/go-json"
 	"github.com/pkg/errors"
-	"github.com/tbd54566975/ssi-service/pkg/storage"
 )
 
 type StoredRequest struct {

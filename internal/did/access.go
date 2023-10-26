@@ -4,12 +4,12 @@ import (
 	"context"
 	"crypto"
 
-	didsdk "github.com/TBD54566975/ssi-sdk/did"
-	"github.com/TBD54566975/ssi-sdk/did/resolution"
-	"github.com/TBD54566975/ssi-sdk/util"
+	didsdk "github.com/extrimian/ssi-sdk/did"
+	"github.com/extrimian/ssi-sdk/did/resolution"
+	"github.com/extrimian/ssi-sdk/util"
 	"github.com/pkg/errors"
 
-	"github.com/tbd54566975/ssi-service/internal/keyaccess"
+	"github.com/extrimian/ssi-service/internal/keyaccess"
 )
 
 // ResolveKeyForDID resolves a public key from a DID for a given KID.

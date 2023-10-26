@@ -4,16 +4,16 @@ import (
 	"context"
 	"time"
 
-	"github.com/TBD54566975/ssi-sdk/crypto"
-	"github.com/TBD54566975/ssi-sdk/crypto/jwx"
-	sdkutil "github.com/TBD54566975/ssi-sdk/util"
 	"github.com/benbjohnson/clock"
+	"github.com/extrimian/ssi-sdk/crypto"
+	"github.com/extrimian/ssi-sdk/crypto/jwx"
+	sdkutil "github.com/extrimian/ssi-sdk/util"
 	"github.com/goccy/go-json"
 	"github.com/mr-tron/base58"
 	"github.com/pkg/errors"
 
-	"github.com/tbd54566975/ssi-service/internal/encryption"
-	"github.com/tbd54566975/ssi-service/pkg/storage"
+	"github.com/extrimian/ssi-service/internal/encryption"
+	"github.com/extrimian/ssi-service/pkg/storage"
 )
 
 // StoredKey represents a common data model to store data on all key types

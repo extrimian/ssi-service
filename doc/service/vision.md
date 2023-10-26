@@ -3,7 +3,7 @@
 The Self Sovereign Identity Service (SSIS) facilitates all things relating to [DIDs](https://www.w3.org/TR/did-core/)
 and [Verifiable Credentials](https://www.w3.org/TR/vc-data-model) — in a box! The service is a part of a
 larger [Decentralized Web Platform](https://developer.tbd.website/projects/web5) architecture. The SSI Service is a
-JSON-API web service that wraps the [ssi-sdk](https://github.com/TBD54566975/ssi-sdk) to facilitate user-focused
+JSON-API web service that wraps the [ssi-sdk](https://github.com/extrimian/ssi-sdk) to facilitate user-focused
 interactions on Web5. The service is intended to interact with user interfaces, wallets, decentralized web nodes, and
 other web infrastructure.
 

@@ -4,18 +4,18 @@ import (
 	"context"
 	"strings"
 
-	sdkutil "github.com/TBD54566975/ssi-sdk/util"
+	sdkutil "github.com/extrimian/ssi-sdk/util"
+	"github.com/extrimian/ssi-service/pkg/service/common"
 	"github.com/goccy/go-json"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
-	"github.com/tbd54566975/ssi-service/pkg/service/common"
 	"go.einride.tech/aip/filtering"
 
-	"github.com/tbd54566975/ssi-service/pkg/service/operation/credential"
-	opstorage "github.com/tbd54566975/ssi-service/pkg/service/operation/storage"
-	"github.com/tbd54566975/ssi-service/pkg/service/operation/storage/namespace"
-	"github.com/tbd54566975/ssi-service/pkg/service/operation/submission"
-	"github.com/tbd54566975/ssi-service/pkg/storage"
+	"github.com/extrimian/ssi-service/pkg/service/operation/credential"
+	opstorage "github.com/extrimian/ssi-service/pkg/service/operation/storage"
+	"github.com/extrimian/ssi-service/pkg/service/operation/storage/namespace"
+	"github.com/extrimian/ssi-service/pkg/service/operation/submission"
+	"github.com/extrimian/ssi-service/pkg/storage"
 )
 
 const (

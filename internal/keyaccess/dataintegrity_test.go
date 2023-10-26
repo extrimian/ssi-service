@@ -3,8 +3,8 @@ package keyaccess
 import (
 	"testing"
 
-	"github.com/TBD54566975/ssi-sdk/credential"
-	"github.com/TBD54566975/ssi-sdk/crypto"
+	"github.com/extrimian/ssi-sdk/credential"
+	"github.com/extrimian/ssi-sdk/crypto"
 	"github.com/goccy/go-json"
 	"github.com/stretchr/testify/assert"
 )
@@ -117,7 +117,7 @@ func TestDataIntegrityKeyAccessSignVerify(t *testing.T) {
 		err = ka.Verify(&pres)
 		assert.NoError(tt, err)
 
-		// TODO(gabe) enable with https://github.com/TBD54566975/ssi-sdk/issues/352, https://github.com/TBD54566975/ssi-service/issues/105
+		// TODO(gabe) enable with https://github.com/extrimian/ssi-sdk/issues/352, https://github.com/extrimian/ssi-service/issues/105
 		err = ka.VerifyVerifiablePresentation(&pres)
 		assert.Error(t, err)
 		assert.Contains(t, err.Error(), "not implemented")

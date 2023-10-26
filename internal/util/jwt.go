@@ -6,7 +6,7 @@ import (
 	"github.com/lestrrat-go/jwx/jws"
 	"github.com/lestrrat-go/jwx/jwt"
 
-	"github.com/tbd54566975/ssi-service/internal/keyaccess"
+	"github.com/extrimian/ssi-service/internal/keyaccess"
 )
 
 // ParseJWT parses a JWT token and returns the jws signature and jwt claims

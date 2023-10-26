@@ -35,7 +35,7 @@ Upon a successful request you should see a response such as:
 
 ## Creating a DID
 
-You can create a DID by sending a `PUT` request to the `/v1/dids/{method}` endpoint. The request body needs two pieces of information: a method and a key type. The method must be supported by the service, and the key type must be supported by the method. You can find out more specifics about what each method supports [by looking at the SDK](https://github.com/TBD54566975/ssi-sdk/tree/main/did). Certain methods may support additional properties in an optional `options` fields.
+You can create a DID by sending a `PUT` request to the `/v1/dids/{method}` endpoint. The request body needs two pieces of information: a method and a key type. The method must be supported by the service, and the key type must be supported by the method. You can find out more specifics about what each method supports [by looking at the SDK](https://github.com/extrimian/ssi-sdk/tree/main/did). Certain methods may support additional properties in an optional `options` fields.
 
 For now let's keep things simple and create a new `did:key` with the key type [`Ed25519`](https://ed25519.cr.yp.to/), a widely respected key type using [ellicptic curve cryptography](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography).
 

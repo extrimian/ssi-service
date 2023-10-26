@@ -6,15 +6,15 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TBD54566975/ssi-sdk/crypto"
-	"github.com/TBD54566975/ssi-sdk/crypto/jwx"
 	"github.com/benbjohnson/clock"
+	"github.com/extrimian/ssi-sdk/crypto"
+	"github.com/extrimian/ssi-sdk/crypto/jwx"
 	"github.com/mr-tron/base58"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/tbd54566975/ssi-service/config"
-	"github.com/tbd54566975/ssi-service/pkg/storage"
+	"github.com/extrimian/ssi-service/config"
+	"github.com/extrimian/ssi-service/pkg/storage"
 )
 
 func TestGenerateServiceKey(t *testing.T) {

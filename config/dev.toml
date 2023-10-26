@@ -33,7 +33,7 @@ id = "boltdb-filepath-option"
 option = "bolt.db"
 
 [services.did]
-methods = ["key", "web"]
+methods = ["key", "web", "quarkid"]
 local_resolution_methods = ["ion", "key", "web", "pkh", "peer"]
 universal_resolver_url = "https://dev.uniresolver.io/"
 universal_resolver_methods = ["ion"]

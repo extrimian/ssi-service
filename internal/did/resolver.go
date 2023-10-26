@@ -3,14 +3,14 @@ package did
 import (
 	"fmt"
 
-	didsdk "github.com/TBD54566975/ssi-sdk/did"
-	"github.com/TBD54566975/ssi-sdk/did/ion"
-	"github.com/TBD54566975/ssi-sdk/did/jwk"
-	"github.com/TBD54566975/ssi-sdk/did/key"
-	"github.com/TBD54566975/ssi-sdk/did/peer"
-	"github.com/TBD54566975/ssi-sdk/did/pkh"
-	"github.com/TBD54566975/ssi-sdk/did/resolution"
-	"github.com/TBD54566975/ssi-sdk/did/web"
+	didsdk "github.com/extrimian/ssi-sdk/did"
+	"github.com/extrimian/ssi-sdk/did/ion"
+	"github.com/extrimian/ssi-sdk/did/jwk"
+	"github.com/extrimian/ssi-sdk/did/key"
+	"github.com/extrimian/ssi-sdk/did/peer"
+	"github.com/extrimian/ssi-sdk/did/pkh"
+	"github.com/extrimian/ssi-sdk/did/resolution"
+	"github.com/extrimian/ssi-sdk/did/web"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )

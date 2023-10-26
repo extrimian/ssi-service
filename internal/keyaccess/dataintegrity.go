@@ -3,15 +3,15 @@ package keyaccess
 import (
 	gocrypto "crypto"
 
-	"github.com/TBD54566975/ssi-sdk/credential"
-	"github.com/TBD54566975/ssi-sdk/crypto/jwx"
-	"github.com/TBD54566975/ssi-sdk/cryptosuite"
-	"github.com/TBD54566975/ssi-sdk/cryptosuite/jws2020"
+	"github.com/extrimian/ssi-sdk/credential"
+	"github.com/extrimian/ssi-sdk/crypto/jwx"
+	"github.com/extrimian/ssi-sdk/cryptosuite"
+	"github.com/extrimian/ssi-sdk/cryptosuite/jws2020"
 	"github.com/goccy/go-json"
 	"github.com/pkg/errors"
 )
 
-// TODO(gabe) integrate signing for Data Integrity as well in https://github.com/TBD54566975/ssi-service/issues/105
+// TODO(gabe) integrate signing for Data Integrity as well in https://github.com/extrimian/ssi-service/issues/105
 
 // DataIntegrityKeyAccess represents a key access object for data integrity using the JsonWebSignature2020 suite:
 // https://w3c.github.io/vc-jws-2020/

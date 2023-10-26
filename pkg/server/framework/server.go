@@ -11,7 +11,7 @@ import (
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/trace"
 
-	"github.com/tbd54566975/ssi-service/config"
+	"github.com/extrimian/ssi-service/config"
 )
 
 const (

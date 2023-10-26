@@ -3,7 +3,7 @@ package testutil
 import (
 	"os"
 
-	"github.com/TBD54566975/ssi-sdk/schema"
+	"github.com/extrimian/ssi-sdk/schema"
 )
 
 func EnableSchemaCaching() {

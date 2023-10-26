@@ -1,8 +1,8 @@
 package operation
 
 import (
-	"github.com/TBD54566975/ssi-sdk/util"
-	"github.com/tbd54566975/ssi-service/pkg/server/pagination"
+	"github.com/extrimian/ssi-sdk/util"
+	"github.com/extrimian/ssi-service/pkg/server/pagination"
 	"go.einride.tech/aip/filtering"
 )
 

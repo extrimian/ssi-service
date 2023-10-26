@@ -5,25 +5,25 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/TBD54566975/ssi-sdk/credential/exchange"
-	manifestsdk "github.com/TBD54566975/ssi-sdk/credential/manifest"
-	"github.com/TBD54566975/ssi-sdk/did"
+	"github.com/extrimian/ssi-sdk/credential/exchange"
+	manifestsdk "github.com/extrimian/ssi-sdk/credential/manifest"
+	"github.com/extrimian/ssi-sdk/did"
 	"github.com/gin-gonic/gin"
 	"github.com/goccy/go-json"
 
-	"github.com/tbd54566975/ssi-service/pkg/service/common"
-	"github.com/tbd54566975/ssi-service/pkg/service/manifest/model"
+	"github.com/extrimian/ssi-service/pkg/service/common"
+	"github.com/extrimian/ssi-service/pkg/service/manifest/model"
 
-	"github.com/tbd54566975/ssi-service/internal/credential"
-	"github.com/tbd54566975/ssi-service/internal/keyaccess"
-	"github.com/tbd54566975/ssi-service/internal/util"
-	"github.com/tbd54566975/ssi-service/pkg/service/manifest"
+	"github.com/extrimian/ssi-service/internal/credential"
+	"github.com/extrimian/ssi-service/internal/keyaccess"
+	"github.com/extrimian/ssi-service/internal/util"
+	"github.com/extrimian/ssi-service/pkg/service/manifest"
 
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 
-	"github.com/tbd54566975/ssi-service/pkg/server/framework"
-	svcframework "github.com/tbd54566975/ssi-service/pkg/service/framework"
+	"github.com/extrimian/ssi-service/pkg/server/framework"
+	svcframework "github.com/extrimian/ssi-service/pkg/service/framework"
 )
 
 type ManifestRouter struct {
@@ -70,7 +70,7 @@ type CreateManifestRequest struct {
 
 	// Formats that the issuer can support when issuing the credential. At least one needs to be set. We currently only
 	// support `jwt_vc` for issuance. See https://identity.foundation/claim-format-registry/#registry for the definition.
-	// TODO: support different claim formats https://github.com/TBD54566975/ssi-service/issues/96
+	// TODO: support different claim formats https://github.com/extrimian/ssi-service/issues/96
 	ClaimFormat *exchange.ClaimFormat `json:"format" validate:"required,dive"`
 
 	// Array of objects as defined in https://identity.foundation/credential-manifest/#output-descriptor.

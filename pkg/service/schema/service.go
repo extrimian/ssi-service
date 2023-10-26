@@ -6,24 +6,24 @@ import (
 	"strings"
 	"time"
 
-	"github.com/TBD54566975/ssi-sdk/credential"
-	"github.com/TBD54566975/ssi-sdk/credential/parsing"
-	"github.com/TBD54566975/ssi-sdk/credential/schema"
-	"github.com/TBD54566975/ssi-sdk/did"
-	"github.com/TBD54566975/ssi-sdk/did/resolution"
-	schemalib "github.com/TBD54566975/ssi-sdk/schema"
-	sdkutil "github.com/TBD54566975/ssi-sdk/util"
+	"github.com/extrimian/ssi-sdk/credential"
+	"github.com/extrimian/ssi-sdk/credential/parsing"
+	"github.com/extrimian/ssi-sdk/credential/schema"
+	"github.com/extrimian/ssi-sdk/did"
+	"github.com/extrimian/ssi-sdk/did/resolution"
+	schemalib "github.com/extrimian/ssi-sdk/schema"
+	sdkutil "github.com/extrimian/ssi-sdk/util"
 	"github.com/goccy/go-json"
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 
-	"github.com/tbd54566975/ssi-service/config"
-	"github.com/tbd54566975/ssi-service/internal/keyaccess"
-	"github.com/tbd54566975/ssi-service/pkg/service/framework"
-	"github.com/tbd54566975/ssi-service/pkg/service/keystore"
+	"github.com/extrimian/ssi-service/config"
+	"github.com/extrimian/ssi-service/internal/keyaccess"
+	"github.com/extrimian/ssi-service/pkg/service/framework"
+	"github.com/extrimian/ssi-service/pkg/service/keystore"
 
-	"github.com/tbd54566975/ssi-service/pkg/storage"
+	"github.com/extrimian/ssi-service/pkg/storage"
 )
 
 type Service struct {
@@ -218,7 +218,7 @@ func (s Service) ListSchemas(ctx context.Context, request ListSchemasRequest) (*
 func (s Service) GetSchema(ctx context.Context, request GetSchemaRequest) (*GetSchemaResponse, error) {
 	logrus.Debugf("getting schema: %s", request.ID)
 
-	// TODO(gabe) support external schema resolution https://github.com/TBD54566975/ssi-service/issues/125
+	// TODO(gabe) support external schema resolution https://github.com/extrimian/ssi-service/issues/125
 	gotSchema, err := s.storage.GetSchema(ctx, request.ID)
 	if err != nil {
 		return nil, sdkutil.LoggingErrorMsgf(err, "error getting schema: %s", request.ID)

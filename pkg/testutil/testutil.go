@@ -5,8 +5,8 @@ import (
 	"testing"
 
 	"github.com/alicebob/miniredis/v2"
+	"github.com/extrimian/ssi-service/pkg/storage"
 	"github.com/stretchr/testify/require"
-	"github.com/tbd54566975/ssi-service/pkg/storage"
 )
 
 var TestDatabases = []struct {

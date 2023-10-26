@@ -1,10 +1,10 @@
 # Contribution Guide
 
-This repo acts as a one-stop, opinionated service for all things Self Sovereign Identity (SSI). Before contributing, we recommend that you review the [README](README.md) and [docs](./doc), dig into some of the specifications it mentions, take a look at recent PRs, and issues. The service is intended to be used in any go project. Our [SSI Service](github.com/TBD54566975/ssi-service) makes use of the [SSI SDK](github.com/TBD54566975/ssi-sdk) for much of its core functionality.
+This repo acts as a one-stop, opinionated service for all things Self Sovereign Identity (SSI). Before contributing, we recommend that you review the [README](README.md) and [docs](./doc), dig into some of the specifications it mentions, take a look at recent PRs, and issues. The service is intended to be used in any go project. Our [SSI Service](github.com/extrimian/ssi-service) makes use of the [SSI SDK](github.com/extrimian/ssi-sdk) for much of its core functionality.
 
 When you're ready you may:
 * Propose ideas in our SSI [discord](https://discord.com/channels/937858703112155166/969272692891086868) channel
-* Raise an issue or feature request in our [issue tracker](https://github.com/TBD54566975/ssi-service/issues)
+* Raise an issue or feature request in our [issue tracker](https://github.com/extrimian/ssi-service/issues)
 * Help another contributor with one of their questions, or a code review
 
 
@@ -96,7 +96,7 @@ $> mage cblt
 ### Issues
 
 Anyone from the community is welcome (and encouraged!) to raise issues
-via [GitHub Issues](https://github.com/TBD54566975/ssi-service/issues).
+via [GitHub Issues](https://github.com/extrimian/ssi-service/issues).
 
 We label issues according to their functionality (e.g. `dids`, `sign-verify`, `credentials`, `bug`, `documentation`, `testing` and more). If you don't see an appropriate label for an issue feel free to request a new one. 
 
@@ -111,7 +111,7 @@ We advocate an asynchronous, written debate model - so write up your thoughts an
 ### Continuous Integration
 
 Build and Test cycles are run on every commit to every branch
-using [GitHub Actions](https://github.com/TBD54566975/ssi-service/actions).
+using [GitHub Actions](https://github.com/extrimian/ssi-service/actions).
 
 ## Contribution
 
@@ -130,7 +130,7 @@ We suggest the following process when picking up an issue:
  * You may also choose to paste a link to the PR in the original issue.
 
 If you don't see an issue for what you would like to work on, have an idea for a new features found a bug, or have a question...
-* Start by proposing a change either in [GitHub Issues](https://github.com/TBD54566975/ssi-service/issues) or on our Discord in the `#ssi` channel
+* Start by proposing a change either in [GitHub Issues](https://github.com/extrimian/ssi-service/issues) or on our Discord in the `#ssi` channel
 * Fork the repo into your own namespace/remote
 * Work in a dedicated feature branch. Atlassian wrote a
   great [description of this workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow)

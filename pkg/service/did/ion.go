@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/TBD54566975/ssi-sdk/crypto"
-	"github.com/TBD54566975/ssi-sdk/crypto/jwx"
-	"github.com/TBD54566975/ssi-sdk/did"
-	"github.com/TBD54566975/ssi-sdk/did/ion"
-	"github.com/TBD54566975/ssi-sdk/util"
+	"github.com/extrimian/ssi-sdk/crypto"
+	"github.com/extrimian/ssi-sdk/crypto/jwx"
+	"github.com/extrimian/ssi-sdk/did"
+	"github.com/extrimian/ssi-sdk/did/ion"
+	"github.com/extrimian/ssi-sdk/util"
 	"github.com/goccy/go-json"
 	"github.com/google/uuid"
 	"github.com/lestrrat-go/jwx/v2/jws"
@@ -17,9 +17,9 @@ import (
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 
-	"github.com/tbd54566975/ssi-service/pkg/service/common"
-	"github.com/tbd54566975/ssi-service/pkg/service/keystore"
-	"github.com/tbd54566975/ssi-service/pkg/storage"
+	"github.com/extrimian/ssi-service/pkg/service/common"
+	"github.com/extrimian/ssi-service/pkg/service/keystore"
+	"github.com/extrimian/ssi-service/pkg/storage"
 )
 
 const (
@@ -432,7 +432,7 @@ func (h *ionHandler) CreateDID(ctx context.Context, request CreateDIDRequest) (*
 	if err != nil {
 		return nil, errors.Wrap(err, "invalid long form DID")
 	}
-	// TODO: remove the first parameter once it is removed in the SDK (https://github.com/TBD54566975/ssi-sdk/issues/438)
+	// TODO: remove the first parameter once it is removed in the SDK (https://github.com/extrimian/ssi-sdk/issues/438)
 	didDoc, err := ion.PatchesToDIDDocument("unused", ionDID.ID(), initialState.Delta.Patches)
 	if err != nil {
 		return nil, errors.Wrap(err, "patching the did document locally")

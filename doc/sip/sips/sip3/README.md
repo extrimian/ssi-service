@@ -25,7 +25,7 @@ Support key access operations such as signing and verification in a generic mann
 - [W3C Data Integrity](https://w3c.github.io/vc-data-integrity/)
 - Signing suites utilizing _Data Integrity_, such as [VC JWS 2020](https://github.com/w3c/vc-jws-2020)
 - [Verifiable Credentials Proofs](https://www.w3.org/TR/vc-data-model/#proofs-signatures)
-- [Keystore Service PR](https://github.com/TBD54566975/ssi-service/pull/62)
+- [Keystore Service PR](https://github.com/extrimian/ssi-service/pull/62)
 
 ## Goals
 
@@ -48,13 +48,13 @@ Support key access operations such as signing and verification in a generic mann
 
 _This design is focused on Signing & Verification._
 
-The [SSI SDK](https://github.com/TBD54566975/ssi-sdk) defines a few utilities for signing and verification:
-- Linked Data Proofs via [Cryptosuite](https://github.com/TBD54566975/ssi-sdk/blob/main/cryptosuite/cryptosuite.go)
-- [JWT Signing and Verification](https://github.com/TBD54566975/ssi-sdk/blob/main/cryptosuite/jwt.go)
+The [SSI SDK](https://github.com/extrimian/ssi-sdk) defines a few utilities for signing and verification:
+- Linked Data Proofs via [Cryptosuite](https://github.com/extrimian/ssi-sdk/blob/main/cryptosuite/cryptosuite.go)
+- [JWT Signing and Verification](https://github.com/extrimian/ssi-sdk/blob/main/cryptosuite/jwt.go)
 
 Broadly, we need to support both paths -- one using Linked Data Proofs and the other using JWTs. At this point in time the only Cryptosuite supported is [JSON Web Signature 2020](https://w3c.github.io/vc-jws-2020/). For both the JSON Web Signature 2020 suite and JWT signing the key material between the signing / verification methods is common, and can be represented using JSON Web Keys (JWKs).
 
-The [Keystore Service PR](https://github.com/TBD54566975/ssi-service/pull/62) support any key type and relies on a method implemented per key type that enables serialization to base58 value of a private key. This design leverages key storage for keys to be used for signing/verification. The keys may be associated with a DID, and identified via key reference (e.g. `did:example:1234#key-1`)
+The [Keystore Service PR](https://github.com/extrimian/ssi-service/pull/62) support any key type and relies on a method implemented per key type that enables serialization to base58 value of a private key. This design leverages key storage for keys to be used for signing/verification. The keys may be associated with a DID, and identified via key reference (e.g. `did:example:1234#key-1`)
 
 ## Design
 
@@ -306,4 +306,4 @@ More broadly, the current set of implementers (myself included) are not cryptogr
 * [W3C Data Integrity](https://w3c.github.io/vc-data-integrity/)
 * Signing suites utilizing _Data Integrity_, such as [VC JWS 2020](https://github.com/w3c/vc-jws-2020)
 * [Verifiable Credentials Proofs](https://www.w3.org/TR/vc-data-model/#proofs-signatures)
-* [Keystore Service PR](https://github.com/TBD54566975/ssi-service/pull/62)
+* [Keystore Service PR](https://github.com/extrimian/ssi-service/pull/62)

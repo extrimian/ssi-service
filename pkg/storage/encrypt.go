@@ -5,7 +5,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/tbd54566975/ssi-service/internal/encryption"
+	"github.com/extrimian/ssi-service/internal/encryption"
 )
 
 type EncryptedWrapper struct {

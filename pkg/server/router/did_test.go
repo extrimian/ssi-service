@@ -5,16 +5,16 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/TBD54566975/ssi-sdk/crypto"
-	didsdk "github.com/TBD54566975/ssi-sdk/did"
+	"github.com/extrimian/ssi-sdk/crypto"
+	didsdk "github.com/extrimian/ssi-sdk/did"
+	"github.com/extrimian/ssi-service/pkg/service/common"
+	"github.com/extrimian/ssi-service/pkg/testutil"
 	"github.com/stretchr/testify/assert"
-	"github.com/tbd54566975/ssi-service/pkg/service/common"
-	"github.com/tbd54566975/ssi-service/pkg/testutil"
 	"gopkg.in/h2non/gock.v1"
 
-	"github.com/tbd54566975/ssi-service/config"
-	"github.com/tbd54566975/ssi-service/pkg/service/did"
-	"github.com/tbd54566975/ssi-service/pkg/service/framework"
+	"github.com/extrimian/ssi-service/config"
+	"github.com/extrimian/ssi-service/pkg/service/did"
+	"github.com/extrimian/ssi-service/pkg/service/framework"
 )
 
 func TestDIDRouter(t *testing.T) {
@@ -34,7 +34,7 @@ func TestDIDRouter(t *testing.T) {
 
 	for _, test := range testutil.TestDatabases {
 		t.Run(test.Name, func(t *testing.T) {
-			// TODO: Fix pagesize issue on redis - https://github.com/TBD54566975/ssi-service/issues/538
+			// TODO: Fix pagesize issue on redis - https://github.com/extrimian/ssi-service/issues/538
 			if !strings.Contains(test.Name, "Redis") {
 				t.Run("List DIDs supports paging", func(tt *testing.T) {
 					db := test.ServiceStorage(tt)

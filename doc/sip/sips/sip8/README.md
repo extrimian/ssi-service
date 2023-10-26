@@ -285,4 +285,4 @@ This will be rolled out successfully if a generic service can receive events fir
 
 - [https://cloudevents.github.io/sdk-go/](https://cloudevents.github.io/sdk-go/)
 - [https://zapier.com/engineering/webhook-design/](https://zapier.com/engineering/webhook-design/)
-- [https://github.com/TBD54566975/ssi-service/tree/sip/claims-verification/sip/sips/sip20220926](https://github.com/TBD54566975/ssi-service/tree/sip/claims-verification/sip/sips/sip20220926)
+- [https://github.com/extrimian/ssi-service/tree/sip/claims-verification/sip/sips/sip20220926](https://github.com/extrimian/ssi-service/tree/sip/claims-verification/sip/sips/sip20220926)

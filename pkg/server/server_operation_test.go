@@ -8,17 +8,17 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/TBD54566975/ssi-sdk/credential/exchange"
+	"github.com/extrimian/ssi-sdk/credential/exchange"
+	"github.com/extrimian/ssi-service/internal/util"
+	"github.com/extrimian/ssi-service/pkg/server/router"
+	"github.com/extrimian/ssi-service/pkg/service/operation"
+	opstorage "github.com/extrimian/ssi-service/pkg/service/operation/storage"
+	"github.com/extrimian/ssi-service/pkg/storage"
+	"github.com/extrimian/ssi-service/pkg/testutil"
 	"github.com/goccy/go-json"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
 	"github.com/stretchr/testify/assert"
-	"github.com/tbd54566975/ssi-service/internal/util"
-	"github.com/tbd54566975/ssi-service/pkg/server/router"
-	"github.com/tbd54566975/ssi-service/pkg/service/operation"
-	opstorage "github.com/tbd54566975/ssi-service/pkg/service/operation/storage"
-	"github.com/tbd54566975/ssi-service/pkg/storage"
-	"github.com/tbd54566975/ssi-service/pkg/testutil"
 )
 
 func TestOperationsAPI(t *testing.T) {
@@ -174,7 +174,7 @@ func TestOperationsAPI(t *testing.T) {
 					assert.False(ttt, resp.Operations[0].Done)
 				})
 
-				// TODO: Fix pagesize issue on redis - https://github.com/TBD54566975/ssi-service/issues/538
+				// TODO: Fix pagesize issue on redis - https://github.com/extrimian/ssi-service/issues/538
 				if !strings.Contains(test.Name, "Redis") {
 					tt.Run("Returns zero operations when filtering to exclude", func(ttt *testing.T) {
 
@@ -203,7 +203,7 @@ func TestOperationsAPI(t *testing.T) {
 					})
 				}
 
-				// TODO: Fix pagesize issue on redis - https://github.com/TBD54566975/ssi-service/issues/538
+				// TODO: Fix pagesize issue on redis - https://github.com/extrimian/ssi-service/issues/538
 				if !strings.Contains(test.Name, "Redis") {
 					tt.Run("Returns zero operations when wrong parent is specified", func(ttt *testing.T) {
 

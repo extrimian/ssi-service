@@ -4,14 +4,14 @@ import (
 	"context"
 	"testing"
 
-	"github.com/TBD54566975/ssi-sdk/crypto"
-	sdkutil "github.com/TBD54566975/ssi-sdk/util"
+	"github.com/extrimian/ssi-sdk/crypto"
+	sdkutil "github.com/extrimian/ssi-sdk/util"
 	"github.com/mr-tron/base58"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/crypto/chacha20poly1305"
 
-	"github.com/tbd54566975/ssi-service/internal/util"
+	"github.com/extrimian/ssi-service/internal/util"
 )
 
 func createServiceKey() (key string, err error) {

@@ -18,6 +18,7 @@ const (
 	Operation        Type = "operation"
 	Webhook          Type = "webhook"
 	DIDConfiguration Type = "did_configuration"
+	CredentialsBBS   Type = "credentials-bbs"
 
 	StatusReady    StatusState = "ready"
 	StatusNotReady StatusState = "not_ready"

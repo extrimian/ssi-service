@@ -5,7 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/tbd54566975/ssi-service/pkg/server/framework"
+	"github.com/extrimian/ssi-service/pkg/server/framework"
 )
 
 type GetHealthCheckResponse struct {

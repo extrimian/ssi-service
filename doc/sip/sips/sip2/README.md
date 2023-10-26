@@ -278,4 +278,4 @@ The *Credential Manifest* is a common data format for describing the inputs a Su
 
 *Credential Manifest in DIF* - [https://identity.foundation/credential-manifest/#credential-manifest](https://identity.foundation/credential-manifest/#credential-manifest)
 
-*Credential Manifest in SSI-SDK* – [https://github.com/TBD54566975/ssi-sdk/tree/main/credential/manifest](https://github.com/TBD54566975/ssi-sdk/tree/main/credential/manifest)
+*Credential Manifest in SSI-SDK* – [https://github.com/extrimian/ssi-sdk/tree/main/credential/manifest](https://github.com/extrimian/ssi-sdk/tree/main/credential/manifest)

@@ -35,7 +35,7 @@ result in a URI version increment.
 # Releases
 
 A release is a version-identified distribution of the SSI Service. Releases can be found
-on [GitHub’s release page](https://github.com/TBD54566975/ssi-service/releases). Releases are always published via
+on [GitHub’s release page](https://github.com/extrimian/ssi-service/releases). Releases are always published via
 GitHub, and reference a specific commit hash.
 
 ## Release Stability
@@ -65,7 +65,7 @@ usage. They are not suffixed (e.g. `v0.5.2`).
 1. **Who creates releases?**
 
 The project maintainers are responsible for creates and managing releases. If you are interested in a release but there
-isn’t one, consider referencing a specific commit hash (e.g. `go get github.com/TBD54566975/ssi-service@<commit-hash>`) 
+isn’t one, consider referencing a specific commit hash (e.g. `go get github.com/extrimian/ssi-service@<commit-hash>`) 
 or reaching out to the team via Discord, the forums, or an issue.
 
 2. **When do we cut a new release?**
@@ -75,7 +75,7 @@ whether to promote additional testing or to advocate for stability such as in th
 
 3. **How are releases represented?**
 
-Releases can be found on [GitHub’s release page](https://github.com/TBD54566975/ssi-service/releases). Release notes
+Releases can be found on [GitHub’s release page](https://github.com/extrimian/ssi-service/releases). Release notes
 highlighting key changes accompany each release.
 
 4. **Which release should I use?**

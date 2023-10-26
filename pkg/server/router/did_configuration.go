@@ -5,10 +5,10 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/tbd54566975/ssi-service/internal/credential"
-	"github.com/tbd54566975/ssi-service/pkg/server/framework"
-	svcframework "github.com/tbd54566975/ssi-service/pkg/service/framework"
-	wellknown "github.com/tbd54566975/ssi-service/pkg/service/well-known"
+	"github.com/extrimian/ssi-service/internal/credential"
+	"github.com/extrimian/ssi-service/pkg/server/framework"
+	svcframework "github.com/extrimian/ssi-service/pkg/service/framework"
+	wellknown "github.com/extrimian/ssi-service/pkg/service/well-known"
 )
 
 type DIDConfigurationRouter struct {

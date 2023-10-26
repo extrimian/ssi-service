@@ -23,7 +23,7 @@ id = "storage-password-option"
 option = "password"
 ```
 
-For a working example, see this [prod.toml file](https://github.com/TBD54566975/ssi-service/blob/85fb66cc2ddfd33e3c33174710fe5a78a7a5ee7f/config/prod.toml#L28-L36)
+For a working example, see this [prod.toml file](https://github.com/extrimian/ssi-service/blob/85fb66cc2ddfd33e3c33174710fe5a78a7a5ee7f/config/prod.toml#L28-L36)
 
 Depending on your data needs, you may want to choose different Redis persistence strategies. For the most durable and
 disaster recovery ready alternative, please make sure to turn on RBD + AOF, with AOF doing an fsync for every write. 
@@ -64,12 +64,12 @@ id = "boltdb-filepath-option"
 option = "bolt.db"
 ```
 
-For a working example, see this [dev.toml file](https://github.com/TBD54566975/ssi-service/blob/85fb66cc2ddfd33e3c33174710fe5a78a7a5ee7f/config/dev.toml#L29-L34)
+For a working example, see this [dev.toml file](https://github.com/extrimian/ssi-service/blob/85fb66cc2ddfd33e3c33174710fe5a78a7a5ee7f/config/dev.toml#L29-L34)
 
 ## Implementing a New Storage Provider
 
 You need to implement the [ServiceStorage interface](../../pkg/storage/storage.go), similar to how [Redis](../../pkg/storage/redis.go)
-is implemented. For an example, see [this PR](https://github.com/TBD54566975/ssi-service/pull/590/files#diff-606358579107e7ad1221525001aed8c776a141d4cc5aab9ef7a3ddbcec10d9f9)
+is implemented. For an example, see [this PR](https://github.com/extrimian/ssi-service/pull/590/files#diff-606358579107e7ad1221525001aed8c776a141d4cc5aab9ef7a3ddbcec10d9f9)
 which introduces the SQL based implementation.
 
 ## Encryption
@@ -121,4 +121,4 @@ in your deployment of the storage configuration). Making all keys readable by an
 use cases around privacy. You should consider whether this is acceptable. Notably, a DID that was created by SSI Service
 is stored as a key. This can fit some definition of PII, as it could be correlated to identify and individual.
 
-Encrypting keys is being considered in https://github.com/TBD54566975/ssi-service/issues/603.
+Encrypting keys is being considered in https://github.com/extrimian/ssi-service/issues/603.

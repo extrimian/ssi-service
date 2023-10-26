@@ -3,8 +3,8 @@ package keystore
 import (
 	gocrypto "crypto"
 
-	"github.com/TBD54566975/ssi-sdk/crypto"
-	"github.com/TBD54566975/ssi-sdk/crypto/jwx"
+	"github.com/extrimian/ssi-sdk/crypto"
+	"github.com/extrimian/ssi-sdk/crypto/jwx"
 )
 
 type StoreKeyRequest struct {

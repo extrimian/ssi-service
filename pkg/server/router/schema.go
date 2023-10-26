@@ -4,16 +4,16 @@ import (
 	"fmt"
 	"net/http"
 
-	schemalib "github.com/TBD54566975/ssi-sdk/credential/schema"
-	"github.com/TBD54566975/ssi-sdk/did"
+	schemalib "github.com/extrimian/ssi-sdk/credential/schema"
+	"github.com/extrimian/ssi-sdk/did"
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
 
-	"github.com/tbd54566975/ssi-service/internal/keyaccess"
-	"github.com/tbd54566975/ssi-service/pkg/server/framework"
-	"github.com/tbd54566975/ssi-service/pkg/server/pagination"
-	svcframework "github.com/tbd54566975/ssi-service/pkg/service/framework"
-	"github.com/tbd54566975/ssi-service/pkg/service/schema"
+	"github.com/extrimian/ssi-service/internal/keyaccess"
+	"github.com/extrimian/ssi-service/pkg/server/framework"
+	"github.com/extrimian/ssi-service/pkg/server/pagination"
+	svcframework "github.com/extrimian/ssi-service/pkg/service/framework"
+	"github.com/extrimian/ssi-service/pkg/service/schema"
 )
 
 type SchemaRouter struct {

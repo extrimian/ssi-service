@@ -4,9 +4,9 @@ import (
 	"context"
 	"testing"
 
-	didsdk "github.com/TBD54566975/ssi-sdk/did"
+	didsdk "github.com/extrimian/ssi-sdk/did"
+	"github.com/extrimian/ssi-service/pkg/testutil"
 	"github.com/stretchr/testify/assert"
-	"github.com/tbd54566975/ssi-service/pkg/testutil"
 )
 
 func TestStorage(t *testing.T) {

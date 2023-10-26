@@ -4,21 +4,21 @@ import (
 	"context"
 	"fmt"
 
-	credsdk "github.com/TBD54566975/ssi-sdk/credential"
-	"github.com/TBD54566975/ssi-sdk/credential/integrity"
-	"github.com/TBD54566975/ssi-sdk/credential/validation"
-	"github.com/TBD54566975/ssi-sdk/crypto"
-	"github.com/TBD54566975/ssi-sdk/crypto/jwx"
-	"github.com/TBD54566975/ssi-sdk/cryptosuite/jws2020"
-	"github.com/TBD54566975/ssi-sdk/did/resolution"
-	sdkutil "github.com/TBD54566975/ssi-sdk/util"
+	credsdk "github.com/extrimian/ssi-sdk/credential"
+	"github.com/extrimian/ssi-sdk/credential/integrity"
+	"github.com/extrimian/ssi-sdk/credential/validation"
+	"github.com/extrimian/ssi-sdk/crypto"
+	"github.com/extrimian/ssi-sdk/crypto/jwx"
+	"github.com/extrimian/ssi-sdk/cryptosuite/jws2020"
+	"github.com/extrimian/ssi-sdk/did/resolution"
+	sdkutil "github.com/extrimian/ssi-sdk/util"
 	"github.com/goccy/go-json"
 	"github.com/pkg/errors"
 
-	"github.com/tbd54566975/ssi-service/internal/credential"
-	didint "github.com/tbd54566975/ssi-service/internal/did"
-	"github.com/tbd54566975/ssi-service/internal/keyaccess"
-	"github.com/tbd54566975/ssi-service/internal/schema"
+	"github.com/extrimian/ssi-service/internal/credential"
+	didint "github.com/extrimian/ssi-service/internal/did"
+	"github.com/extrimian/ssi-service/internal/keyaccess"
+	"github.com/extrimian/ssi-service/internal/schema"
 )
 
 type Verifier struct {

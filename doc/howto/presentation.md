@@ -15,9 +15,9 @@ Verifiable Presentations are currently accepted in two main SSI Service flows: w
 
 ## Constructing a Verifiable Presentation
 
-Constructing a Verifiable Presentation is out of scope for the SSI Service, since the service acts as a utility for organizations managing their own credentials. However, the [SSI SDK](https://github.com/TBD54566975/ssi-sdk) provides a standards-based implementation of Verifiable Presentations using the [JWT representation](https://www.w3.org/TR/vc-data-model/#jwt-and-jws-considerations).
+Constructing a Verifiable Presentation is out of scope for the SSI Service, since the service acts as a utility for organizations managing their own credentials. However, the [SSI SDK](https://github.com/extrimian/ssi-sdk) provides a standards-based implementation of Verifiable Presentations using the [JWT representation](https://www.w3.org/TR/vc-data-model/#jwt-and-jws-considerations).
 
-Library code for Verifiable Presentations can be found [here](https://github.com/TBD54566975/ssi-sdk/blob/d5c302a1d9b9d04c1636a0c8dfda015f61bb0f6b/credential/model.go#L110) with associated signing and verificatoin logic [here](https://github.com/TBD54566975/ssi-sdk/blob/d5c302a1d9b9d04c1636a0c8dfda015f61bb0f6b/credential/integrity/jwt.go#L208). An example of constructing a Verifiable Presentation using the SDK is provided below as a [runnable unit test here](presentation_test.go).
+Library code for Verifiable Presentations can be found [here](https://github.com/extrimian/ssi-sdk/blob/d5c302a1d9b9d04c1636a0c8dfda015f61bb0f6b/credential/model.go#L110) with associated signing and verificatoin logic [here](https://github.com/extrimian/ssi-sdk/blob/d5c302a1d9b9d04c1636a0c8dfda015f61bb0f6b/credential/integrity/jwt.go#L208). An example of constructing a Verifiable Presentation using the SDK is provided below as a [runnable unit test here](presentation_test.go).
 
 Upon running, we should see the test create a credential and a presentation for that credential as a JWT.
 

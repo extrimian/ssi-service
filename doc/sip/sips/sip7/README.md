@@ -1,6 +1,6 @@
 
 # SIP 7 Credential Revocation
-GitHub Link: https://github.com/TBD54566975/ssi-service/tree/main/sip/sips/sip7
+GitHub Link: https://github.com/extrimian/ssi-service/tree/main/sip/sips/sip7
 
 Status: Draft
 # SIP 7: Credential Revocation

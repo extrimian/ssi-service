@@ -11,19 +11,19 @@ import (
 	"text/template"
 	"time"
 
-	manifestsdk "github.com/TBD54566975/ssi-sdk/credential/manifest"
-	"github.com/TBD54566975/ssi-sdk/crypto"
-	"github.com/TBD54566975/ssi-sdk/did/key"
 	"github.com/cenkalti/backoff/v4"
+	manifestsdk "github.com/extrimian/ssi-sdk/credential/manifest"
+	"github.com/extrimian/ssi-sdk/crypto"
+	"github.com/extrimian/ssi-sdk/did/key"
 	"github.com/goccy/go-json"
 	"github.com/oliveagle/jsonpath"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 
-	credmodel "github.com/tbd54566975/ssi-service/internal/credential"
-	"github.com/tbd54566975/ssi-service/internal/keyaccess"
-	"github.com/tbd54566975/ssi-service/internal/util"
-	"github.com/tbd54566975/ssi-service/pkg/server/router"
+	credmodel "github.com/extrimian/ssi-service/internal/credential"
+	"github.com/extrimian/ssi-service/internal/keyaccess"
+	"github.com/extrimian/ssi-service/internal/util"
+	"github.com/extrimian/ssi-service/pkg/server/router"
 )
 
 const (

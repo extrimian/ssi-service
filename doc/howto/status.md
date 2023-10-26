@@ -166,7 +166,7 @@ Upon success we see a response such as:
 With this status list credential we're able to check the status for the credential we created, which is identified by its id `8f9d58b2-c978-4317-96bd-35949ce76121` and status list index `106493`. To check the status you have a few options:
 
 1. Run the [verification algorithm](https://w3c.github.io/vc-status-list-2021/#validate-algorithm) yourself using the specification.
-2. Use the [utility in the SSI SDK](https://github.com/TBD54566975/ssi-sdk/blob/d5c302a1d9b9d04c1636a0c8dfda015f61bb0f6b/credential/status/statuslist2021.go#L254) to check the status.
+2. Use the [utility in the SSI SDK](https://github.com/extrimian/ssi-sdk/blob/d5c302a1d9b9d04c1636a0c8dfda015f61bb0f6b/credential/status/statuslist2021.go#L254) to check the status.
 3. Use the SSI Service's endpoint for status validation.
 
 ### 3. Verify a credential's status

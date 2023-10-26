@@ -3,8 +3,8 @@ package namespace
 import (
 	"strings"
 
-	"github.com/tbd54566975/ssi-service/pkg/service/operation/credential"
-	"github.com/tbd54566975/ssi-service/pkg/service/operation/submission"
+	"github.com/extrimian/ssi-service/pkg/service/operation/credential"
+	"github.com/extrimian/ssi-service/pkg/service/operation/submission"
 )
 
 const (

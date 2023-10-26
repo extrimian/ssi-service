@@ -3,11 +3,11 @@ package integration
 import (
 	"testing"
 
-	"github.com/TBD54566975/ssi-sdk/crypto"
-	"github.com/TBD54566975/ssi-sdk/did/key"
+	"github.com/extrimian/ssi-sdk/crypto"
+	"github.com/extrimian/ssi-sdk/did/key"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/tbd54566975/ssi-service/pkg/service/operation/storage"
+	"github.com/extrimian/ssi-service/pkg/service/operation/storage"
 )
 
 var didWebContext = NewTestContext("DIDWeb")

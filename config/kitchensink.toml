@@ -46,7 +46,7 @@ password = "default-password"
 # kms_credentials_path = "credentials.json"
 
 [services.did]
-methods = ["key", "web"]
+methods = ["key", "web", "quarkid"]
 local_resolution_methods = ["key", "web", "pkh", "peer"]
 batch_create_max_items = 100
 

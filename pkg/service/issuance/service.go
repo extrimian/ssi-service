@@ -6,10 +6,10 @@ import (
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
 
-	"github.com/tbd54566975/ssi-service/pkg/service/framework"
-	manifeststg "github.com/tbd54566975/ssi-service/pkg/service/manifest/storage"
-	"github.com/tbd54566975/ssi-service/pkg/service/schema"
-	"github.com/tbd54566975/ssi-service/pkg/storage"
+	"github.com/extrimian/ssi-service/pkg/service/framework"
+	manifeststg "github.com/extrimian/ssi-service/pkg/service/manifest/storage"
+	"github.com/extrimian/ssi-service/pkg/service/schema"
+	"github.com/extrimian/ssi-service/pkg/storage"
 )
 
 type Service struct {

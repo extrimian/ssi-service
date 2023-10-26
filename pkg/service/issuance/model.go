@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/TBD54566975/ssi-sdk/util"
-	"github.com/tbd54566975/ssi-service/pkg/service/common"
+	"github.com/extrimian/ssi-sdk/util"
+	"github.com/extrimian/ssi-service/pkg/service/common"
 	"go.einride.tech/aip/filtering"
 )
 

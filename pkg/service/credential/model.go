@@ -3,9 +3,9 @@ package credential
 import (
 	"fmt"
 
-	"github.com/TBD54566975/ssi-sdk/util"
-	"github.com/tbd54566975/ssi-service/internal/credential"
-	"github.com/tbd54566975/ssi-service/pkg/service/common"
+	"github.com/extrimian/ssi-sdk/util"
+	"github.com/extrimian/ssi-service/internal/credential"
+	"github.com/extrimian/ssi-service/pkg/service/common"
 )
 
 type BatchCreateCredentialsRequest struct {

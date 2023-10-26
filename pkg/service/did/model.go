@@ -3,11 +3,12 @@ package did
 import (
 	gocrypto "crypto"
 
-	"github.com/TBD54566975/ssi-sdk/crypto"
-	didsdk "github.com/TBD54566975/ssi-sdk/did"
-	"github.com/TBD54566975/ssi-sdk/did/ion"
-	"github.com/TBD54566975/ssi-sdk/did/resolution"
-	"github.com/tbd54566975/ssi-service/pkg/service/common"
+	"github.com/extrimian/ssi-sdk/crypto"
+	"github.com/extrimian/ssi-sdk/crypto/jwx"
+	didsdk "github.com/extrimian/ssi-sdk/did"
+	"github.com/extrimian/ssi-sdk/did/ion"
+	"github.com/extrimian/ssi-sdk/did/resolution"
+	"github.com/extrimian/ssi-service/pkg/service/common"
 )
 
 type GetSupportedMethodsResponse struct {
@@ -108,3 +109,37 @@ const (
 	AnchoredStatus    UpdateRequestStatus = "anchored"
 	DoneStatus        UpdateRequestStatus = "done"
 )
+
+type identityRequest struct {
+	PublicKeys []publicKeyIdentityRequest `json:"publicKeys,omitempty"`
+	DidMethod  string                     `json:"didMethod,omitempty"`
+}
+
+type publicKeyIdentityRequest struct {
+	VmId                     string           `json:"vmId,omitempty"`
+	PublicKeyJWK             jwx.PublicKeyJWK `json:"publicKeyJWK,omitempty"`
+	VerificationRelationship string           `json:"verificationRelationship,omitempty"`
+}
+
+type PublicKeyResponse struct {
+	PublicKeyJWK jwx.PublicKeyJWK `json:"publicKeyJWK,omitempty"`
+}
+
+type QuarkidIdentityResponse struct {
+	DID string `json:"did,omitempty"`
+}
+
+type QuarkidIdentity struct {
+	Context            []interface{}        `json:"@context"`
+	ID                 string               `json:"id"`
+	VerificationMethod []VerificationMethod `json:"verificationMethod"`
+	KeyAgreement       []string             `json:"keyAgreement"`
+	AssertionMethod    []string             `json:"assertionMethod"`
+}
+
+type VerificationMethod struct {
+	ID           string           `json:"id"`
+	Controller   string           `json:"controller"`
+	Type         string           `json:"type"`
+	PublicKeyJWK jwx.PublicKeyJWK `json:"publicKeyJwk"`
+}

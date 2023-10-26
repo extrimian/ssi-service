@@ -1,15 +1,17 @@
-module github.com/tbd54566975/ssi-service
+module github.com/extrimian/ssi-service
 
-go 1.20
+go 1.21
+
+toolchain go1.21.3
 
 require (
 	github.com/BurntSushi/toml v1.3.2
-	github.com/TBD54566975/ssi-sdk v0.0.4-alpha.0.20230818212001-6e1043316e75
 	github.com/alicebob/miniredis/v2 v2.30.5
 	github.com/ardanlabs/conf v1.5.0
 	github.com/benbjohnson/clock v1.3.5
 	github.com/btcsuite/btcd/chaincfg/chainhash v1.0.2
 	github.com/cenkalti/backoff/v4 v4.2.1
+	github.com/extrimian/ssi-sdk v0.2.0
 	github.com/fergusstrange/embedded-postgres v1.24.0
 	github.com/gin-contrib/cors v1.4.0
 	github.com/gin-gonic/gin v1.9.1
@@ -53,6 +55,8 @@ require (
 
 replace github.com/dgraph-io/ristretto => github.com/ory/ristretto v0.1.1-0.20211108053508-297c39e6640f
 
+// replace github.com/extrimian/ssi-sdk => /home/lucas/Desktop/Extrimian/ssi-sdk
+
 require (
 	cloud.google.com/go/compute v1.23.0 // indirect
 	cloud.google.com/go/compute/metadata v0.2.3 // indirect
@@ -87,7 +91,7 @@ require (
 	github.com/go-openapi/jsonreference v0.20.2 // indirect
 	github.com/go-openapi/spec v0.20.9 // indirect
 	github.com/go-openapi/swag v0.22.3 // indirect
-	github.com/go-playground/validator/v10 v10.15.0 // indirect
+	github.com/go-playground/validator/v10 v10.15.1 // indirect
 	github.com/golang/glog v1.1.1 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/golang/mock v1.6.0 // indirect

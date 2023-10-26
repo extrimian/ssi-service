@@ -1,12 +1,12 @@
 package schema
 
 import (
-	"github.com/TBD54566975/ssi-sdk/credential/schema"
-	"github.com/TBD54566975/ssi-sdk/util"
-	"github.com/tbd54566975/ssi-service/pkg/server/pagination"
-	"github.com/tbd54566975/ssi-service/pkg/service/common"
+	"github.com/extrimian/ssi-sdk/credential/schema"
+	"github.com/extrimian/ssi-sdk/util"
+	"github.com/extrimian/ssi-service/pkg/server/pagination"
+	"github.com/extrimian/ssi-service/pkg/service/common"
 
-	"github.com/tbd54566975/ssi-service/internal/keyaccess"
+	"github.com/extrimian/ssi-service/internal/keyaccess"
 )
 
 type CreateSchemaRequest struct {

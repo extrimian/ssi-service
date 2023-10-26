@@ -3,19 +3,19 @@ package storage
 import (
 	"context"
 
-	"github.com/TBD54566975/ssi-sdk/credential/manifest"
-	sdkutil "github.com/TBD54566975/ssi-sdk/util"
+	"github.com/extrimian/ssi-sdk/credential/manifest"
+	sdkutil "github.com/extrimian/ssi-sdk/util"
 	"github.com/goccy/go-json"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 
-	cred "github.com/tbd54566975/ssi-service/internal/credential"
-	"github.com/tbd54566975/ssi-service/internal/keyaccess"
-	"github.com/tbd54566975/ssi-service/pkg/service/operation/credential"
-	opstorage "github.com/tbd54566975/ssi-service/pkg/service/operation/storage"
-	"github.com/tbd54566975/ssi-service/pkg/service/operation/storage/namespace"
-	opsubmission "github.com/tbd54566975/ssi-service/pkg/service/operation/submission"
-	"github.com/tbd54566975/ssi-service/pkg/storage"
+	cred "github.com/extrimian/ssi-service/internal/credential"
+	"github.com/extrimian/ssi-service/internal/keyaccess"
+	"github.com/extrimian/ssi-service/pkg/service/operation/credential"
+	opstorage "github.com/extrimian/ssi-service/pkg/service/operation/storage"
+	"github.com/extrimian/ssi-service/pkg/service/operation/storage/namespace"
+	opsubmission "github.com/extrimian/ssi-service/pkg/service/operation/submission"
+	"github.com/extrimian/ssi-service/pkg/storage"
 )
 
 const (

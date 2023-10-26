@@ -4,17 +4,17 @@ import (
 	"context"
 	"testing"
 
+	"github.com/extrimian/ssi-service/pkg/testutil"
 	"github.com/goccy/go-json"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
 	"github.com/stretchr/testify/require"
-	"github.com/tbd54566975/ssi-service/pkg/testutil"
 
-	manifeststg "github.com/tbd54566975/ssi-service/pkg/service/manifest/storage"
-	"github.com/tbd54566975/ssi-service/pkg/service/operation/credential"
-	opstorage "github.com/tbd54566975/ssi-service/pkg/service/operation/storage"
-	"github.com/tbd54566975/ssi-service/pkg/service/operation/storage/namespace"
-	"github.com/tbd54566975/ssi-service/pkg/storage"
+	manifeststg "github.com/extrimian/ssi-service/pkg/service/manifest/storage"
+	"github.com/extrimian/ssi-service/pkg/service/operation/credential"
+	opstorage "github.com/extrimian/ssi-service/pkg/service/operation/storage"
+	"github.com/extrimian/ssi-service/pkg/service/operation/storage/namespace"
+	"github.com/extrimian/ssi-service/pkg/storage"
 )
 
 func TestStorage_CancelOperation(t *testing.T) {

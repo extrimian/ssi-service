@@ -16,7 +16,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/tbd54566975/ssi-service/internal/encryption"
+	"github.com/extrimian/ssi-service/internal/encryption"
 )
 
 func getDBImplementations(t *testing.T) []ServiceStorage {

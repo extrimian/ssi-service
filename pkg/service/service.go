@@ -3,22 +3,23 @@ package service
 import (
 	"fmt"
 
-	sdkutil "github.com/TBD54566975/ssi-sdk/util"
+	sdkutil "github.com/extrimian/ssi-sdk/util"
 	"github.com/pkg/errors"
 
-	"github.com/tbd54566975/ssi-service/config"
-	"github.com/tbd54566975/ssi-service/pkg/service/credential"
-	"github.com/tbd54566975/ssi-service/pkg/service/did"
-	"github.com/tbd54566975/ssi-service/pkg/service/framework"
-	"github.com/tbd54566975/ssi-service/pkg/service/issuance"
-	"github.com/tbd54566975/ssi-service/pkg/service/keystore"
-	"github.com/tbd54566975/ssi-service/pkg/service/manifest"
-	"github.com/tbd54566975/ssi-service/pkg/service/operation"
-	"github.com/tbd54566975/ssi-service/pkg/service/presentation"
-	"github.com/tbd54566975/ssi-service/pkg/service/schema"
-	"github.com/tbd54566975/ssi-service/pkg/service/webhook"
-	wellknown "github.com/tbd54566975/ssi-service/pkg/service/well-known"
-	"github.com/tbd54566975/ssi-service/pkg/storage"
+	"github.com/extrimian/ssi-service/config"
+	"github.com/extrimian/ssi-service/pkg/service/credential"
+	credentials_bbs "github.com/extrimian/ssi-service/pkg/service/credentials-bbs"
+	"github.com/extrimian/ssi-service/pkg/service/did"
+	"github.com/extrimian/ssi-service/pkg/service/framework"
+	"github.com/extrimian/ssi-service/pkg/service/issuance"
+	"github.com/extrimian/ssi-service/pkg/service/keystore"
+	"github.com/extrimian/ssi-service/pkg/service/manifest"
+	"github.com/extrimian/ssi-service/pkg/service/operation"
+	"github.com/extrimian/ssi-service/pkg/service/presentation"
+	"github.com/extrimian/ssi-service/pkg/service/schema"
+	"github.com/extrimian/ssi-service/pkg/service/webhook"
+	wellknown "github.com/extrimian/ssi-service/pkg/service/well-known"
+	"github.com/extrimian/ssi-service/pkg/storage"
 )
 
 // SSIService represents all services and their dependencies independent of transport
@@ -35,6 +36,7 @@ type SSIService struct {
 	storage          storage.ServiceStorage
 	BatchDID         *did.BatchService
 	DIDConfiguration *wellknown.DIDConfigurationService
+	CredentialsBBS   *credentials_bbs.Service
 }
 
 // InstantiateSSIService creates a new instance of the SSIS which instantiates all services and their
@@ -143,6 +145,9 @@ func instantiateServices(config config.ServicesConfig) (*SSIService, error) {
 	}
 
 	didConfigurationService, _ := wellknown.NewDIDConfigurationService(keyStoreService, didResolver, schemaService)
+
+	credentialsBBSService, _ := credentials_bbs.NewCredentialsBBSService()
+
 	return &SSIService{
 		KeyStore:         keyStoreService,
 		DID:              didService,
@@ -156,6 +161,7 @@ func instantiateServices(config config.ServicesConfig) (*SSIService, error) {
 		Webhook:          webhookService,
 		DIDConfiguration: didConfigurationService,
 		storage:          storageProvider,
+		CredentialsBBS:   credentialsBBSService,
 	}, nil
 }
 
@@ -171,6 +177,7 @@ func (s *SSIService) GetServices() []framework.Service {
 		s.Presentation,
 		s.Operation,
 		s.Webhook,
+		s.CredentialsBBS,
 	}
 }
 

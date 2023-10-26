@@ -3,12 +3,12 @@ package storage
 import (
 	"context"
 
-	"github.com/TBD54566975/ssi-sdk/credential"
-	"github.com/TBD54566975/ssi-sdk/credential/exchange"
+	"github.com/extrimian/ssi-sdk/credential"
+	"github.com/extrimian/ssi-sdk/credential/exchange"
+	"github.com/extrimian/ssi-service/pkg/service/common"
+	opstorage "github.com/extrimian/ssi-service/pkg/service/operation/storage"
+	"github.com/extrimian/ssi-service/pkg/service/operation/submission"
 	"github.com/pkg/errors"
-	"github.com/tbd54566975/ssi-service/pkg/service/common"
-	opstorage "github.com/tbd54566975/ssi-service/pkg/service/operation/storage"
-	"github.com/tbd54566975/ssi-service/pkg/service/operation/submission"
 	"go.einride.tech/aip/filtering"
 )
 

@@ -6,20 +6,20 @@ import (
 	"fmt"
 	"os"
 
-	sdkutil "github.com/TBD54566975/ssi-sdk/util"
+	sdkutil "github.com/extrimian/ssi-sdk/util"
 	"github.com/gin-gonic/gin"
 	swaggerfiles "github.com/swaggo/files"
 	ginswagger "github.com/swaggo/gin-swagger"
 	"go.opentelemetry.io/contrib/instrumentation/github.com/gin-gonic/gin/otelgin"
 
-	"github.com/tbd54566975/ssi-service/config"
-	"github.com/tbd54566975/ssi-service/pkg/server/framework"
-	"github.com/tbd54566975/ssi-service/pkg/server/middleware"
-	"github.com/tbd54566975/ssi-service/pkg/server/router"
-	"github.com/tbd54566975/ssi-service/pkg/service"
-	didsvc "github.com/tbd54566975/ssi-service/pkg/service/did"
-	svcframework "github.com/tbd54566975/ssi-service/pkg/service/framework"
-	"github.com/tbd54566975/ssi-service/pkg/service/webhook"
+	"github.com/extrimian/ssi-service/config"
+	"github.com/extrimian/ssi-service/pkg/server/framework"
+	"github.com/extrimian/ssi-service/pkg/server/middleware"
+	"github.com/extrimian/ssi-service/pkg/server/router"
+	"github.com/extrimian/ssi-service/pkg/service"
+	didsvc "github.com/extrimian/ssi-service/pkg/service/did"
+	svcframework "github.com/extrimian/ssi-service/pkg/service/framework"
+	"github.com/extrimian/ssi-service/pkg/service/webhook"
 )
 
 const (
@@ -45,6 +45,7 @@ const (
 	VerificationPath        = "/verification"
 	WebhookPrefix           = "/webhooks"
 	DIDConfigurationsPrefix = "/did-configurations"
+	CredentialsBBSPrefix    = "/credentialsbbs"
 
 	batchSuffix = "/batch"
 )
@@ -107,6 +108,9 @@ func NewSSIServer(shutdown chan os.Signal, cfg config.SSIServiceConfig) (*SSISer
 	if err = DIDConfigurationAPI(v1, ssi.DIDConfiguration); err != nil {
 		return nil, sdkutil.LoggingErrorMsg(err, "unable to instantiate DIDConfiguration API")
 	}
+	if err = CredentialsBBSAPI(v1, ssi.CredentialsBBS); err != nil {
+		return nil, sdkutil.LoggingErrorMsg(err, "unable to instantiate credentials_bbs API")
+	}
 
 	return &SSIServer{
 		Server:       httpServer,
@@ -144,6 +148,24 @@ func setUpEngine(cfg config.ServerConfig, shutdown chan os.Signal) *gin.Engine {
 	return engine
 }
 
+func CredentialsBBSAPI(rg *gin.RouterGroup, service svcframework.Service) (err error) {
+	credentialsBBSRouter, err := router.NewCredentialsBBSRouter(service)
+	if err != nil {
+		return sdkutil.LoggingErrorMsg(err, "creating credentials_bbs router")
+	}
+
+	config.SetServicePath(svcframework.CredentialsBBS, CredentialsBBSPrefix)
+	credentialsBBSAPI := rg.Group(CredentialsBBSPrefix)
+	credentialsBBSAPI.PUT("", credentialsBBSRouter.CreateCredential)
+	credentialsBBSAPI.PUT("/verifier", credentialsBBSRouter.VerifyCredential)
+	credentialsBBSAPI.PUT("/wacioob", credentialsBBSRouter.CreateOOBFromVC)
+	credentialsBBSAPI.GET("", credentialsBBSRouter.ListCredentials)
+	credentialsBBSAPI.GET("/render", credentialsBBSRouter.ListCredentialsWithRender)
+
+	credentialsBBSAPI.PUT("/didcomm/pack", credentialsBBSRouter.PackDIDComm)
+	return
+}
+
 // KeyStoreAPI registers all HTTP handlers for the Key Store Service
 func KeyStoreAPI(rg *gin.RouterGroup, service svcframework.Service) (err error) {
 	keyStoreRouter, err := router.NewKeyStoreRouter(service)
@@ -179,6 +201,9 @@ func DecentralizedIdentityAPI(rg *gin.RouterGroup, service *didsvc.Service, did 
 	didAPI.GET("/:method/:id", didRouter.GetDIDByMethod)
 	didAPI.DELETE("/:method/:id", didRouter.SoftDeleteDIDByMethod)
 	didAPI.GET(ResolverPrefix+"/:id", didRouter.ResolveDID)
+
+	didAPI.PUT("/quarkid", didRouter.CreateQuarkidDID)
+	didAPI.GET("/quarkid/:id", didRouter.GetQuarkidDID)
 	return
 }
 

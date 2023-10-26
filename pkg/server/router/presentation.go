@@ -5,21 +5,21 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/TBD54566975/ssi-sdk/credential/exchange"
-	"github.com/TBD54566975/ssi-sdk/credential/integrity"
-	"github.com/TBD54566975/ssi-sdk/util"
+	"github.com/extrimian/ssi-sdk/credential/exchange"
+	"github.com/extrimian/ssi-sdk/credential/integrity"
+	"github.com/extrimian/ssi-sdk/util"
 	"github.com/gin-gonic/gin"
 	"github.com/goccy/go-json"
 	"github.com/pkg/errors"
 	"go.einride.tech/aip/filtering"
 
-	credint "github.com/tbd54566975/ssi-service/internal/credential"
-	"github.com/tbd54566975/ssi-service/internal/keyaccess"
-	"github.com/tbd54566975/ssi-service/pkg/server/framework"
-	"github.com/tbd54566975/ssi-service/pkg/server/pagination"
-	svcframework "github.com/tbd54566975/ssi-service/pkg/service/framework"
-	"github.com/tbd54566975/ssi-service/pkg/service/presentation"
-	"github.com/tbd54566975/ssi-service/pkg/service/presentation/model"
+	credint "github.com/extrimian/ssi-service/internal/credential"
+	"github.com/extrimian/ssi-service/internal/keyaccess"
+	"github.com/extrimian/ssi-service/pkg/server/framework"
+	"github.com/extrimian/ssi-service/pkg/server/pagination"
+	svcframework "github.com/extrimian/ssi-service/pkg/service/framework"
+	"github.com/extrimian/ssi-service/pkg/service/presentation"
+	"github.com/extrimian/ssi-service/pkg/service/presentation/model"
 )
 
 type PresentationRouter struct {

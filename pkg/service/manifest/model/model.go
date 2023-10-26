@@ -3,15 +3,15 @@ package model
 import (
 	"time"
 
-	"github.com/TBD54566975/ssi-sdk/credential/exchange"
-	manifestsdk "github.com/TBD54566975/ssi-sdk/credential/manifest"
-	sdkutil "github.com/TBD54566975/ssi-sdk/util"
+	"github.com/extrimian/ssi-sdk/credential/exchange"
+	manifestsdk "github.com/extrimian/ssi-sdk/credential/manifest"
+	sdkutil "github.com/extrimian/ssi-sdk/util"
 
-	"github.com/tbd54566975/ssi-service/pkg/service/common"
+	"github.com/extrimian/ssi-service/pkg/service/common"
 
-	cred "github.com/tbd54566975/ssi-service/internal/credential"
-	"github.com/tbd54566975/ssi-service/internal/keyaccess"
-	"github.com/tbd54566975/ssi-service/pkg/service/manifest/storage"
+	cred "github.com/extrimian/ssi-service/internal/credential"
+	"github.com/extrimian/ssi-service/internal/keyaccess"
+	"github.com/extrimian/ssi-service/pkg/service/manifest/storage"
 )
 
 // Manifest

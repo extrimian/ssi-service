@@ -10,13 +10,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TBD54566975/ssi-sdk/credential"
-	"github.com/TBD54566975/ssi-sdk/credential/exchange"
-	"github.com/TBD54566975/ssi-sdk/credential/integrity"
-	"github.com/TBD54566975/ssi-sdk/crypto"
-	"github.com/TBD54566975/ssi-sdk/crypto/jwx"
-	didsdk "github.com/TBD54566975/ssi-sdk/did"
-	"github.com/TBD54566975/ssi-sdk/did/key"
+	"github.com/extrimian/ssi-sdk/credential"
+	"github.com/extrimian/ssi-sdk/credential/exchange"
+	"github.com/extrimian/ssi-sdk/credential/integrity"
+	"github.com/extrimian/ssi-sdk/crypto"
+	"github.com/extrimian/ssi-sdk/crypto/jwx"
+	didsdk "github.com/extrimian/ssi-sdk/did"
+	"github.com/extrimian/ssi-sdk/did/key"
 	"github.com/goccy/go-json"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
@@ -24,16 +24,16 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/tbd54566975/ssi-service/pkg/testutil"
+	"github.com/extrimian/ssi-service/pkg/testutil"
 
-	"github.com/tbd54566975/ssi-service/internal/keyaccess"
-	"github.com/tbd54566975/ssi-service/internal/util"
-	"github.com/tbd54566975/ssi-service/pkg/server/router"
-	"github.com/tbd54566975/ssi-service/pkg/service/did"
-	opstorage "github.com/tbd54566975/ssi-service/pkg/service/operation/storage"
-	"github.com/tbd54566975/ssi-service/pkg/service/presentation"
-	"github.com/tbd54566975/ssi-service/pkg/service/presentation/model"
-	"github.com/tbd54566975/ssi-service/pkg/storage"
+	"github.com/extrimian/ssi-service/internal/keyaccess"
+	"github.com/extrimian/ssi-service/internal/util"
+	"github.com/extrimian/ssi-service/pkg/server/router"
+	"github.com/extrimian/ssi-service/pkg/service/did"
+	opstorage "github.com/extrimian/ssi-service/pkg/service/operation/storage"
+	"github.com/extrimian/ssi-service/pkg/service/presentation"
+	"github.com/extrimian/ssi-service/pkg/service/presentation/model"
+	"github.com/extrimian/ssi-service/pkg/storage"
 )
 
 func TestPresentationAPI(t *testing.T) {
@@ -564,7 +564,7 @@ func TestPresentationAPI(t *testing.T) {
 				})
 
 				ttt.Run("List submissions pagination", func(tttt *testing.T) {
-					// TODO: Fix pagesize issue on redis - https://github.com/TBD54566975/ssi-service/issues/538
+					// TODO: Fix pagesize issue on redis - https://github.com/extrimian/ssi-service/issues/538
 					if strings.Contains(test.Name, "Redis") {
 						tttt.Skip("skipping pagination test for Redis")
 					}
@@ -623,7 +623,7 @@ func TestPresentationAPI(t *testing.T) {
 				})
 
 				ttt.Run("List submissions pagination change query between calls returns error", func(tttt *testing.T) {
-					// TODO: Fix pagesize issue on redis - https://github.com/TBD54566975/ssi-service/issues/538
+					// TODO: Fix pagesize issue on redis - https://github.com/extrimian/ssi-service/issues/538
 					if strings.Contains(test.Name, "Redis") {
 						tttt.Skip("skipping pagination test for Redis")
 					}

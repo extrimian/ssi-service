@@ -1,7 +1,7 @@
 package request
 
 import (
-	"github.com/TBD54566975/ssi-sdk/oidc/issuance"
+	"github.com/extrimian/ssi-sdk/oidc/issuance"
 	"github.com/pkg/errors"
 )
 

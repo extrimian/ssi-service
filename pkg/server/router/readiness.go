@@ -6,8 +6,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/tbd54566975/ssi-service/pkg/server/framework"
-	svcframework "github.com/tbd54566975/ssi-service/pkg/service/framework"
+	"github.com/extrimian/ssi-service/pkg/server/framework"
+	svcframework "github.com/extrimian/ssi-service/pkg/service/framework"
 )
 
 func Readiness(services []svcframework.Service) gin.HandlerFunc {

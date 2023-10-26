@@ -19,7 +19,7 @@ The [Credential Manifest](https://identity.foundation/credential-manifest/) spec
 
 ## Background
 
-[Credential Manifest](https://identity.foundation/credential-manifest/) is approaching v1 in DIF and it is implemented in both the [SSI SDK](https://github.com/TBD54566975/ssi-sdk/tree/main/credential/manifest) and [SSI Service](https://github.com/TBD54566975/ssi-service/tree/main/pkg/service/manifest). The implementation of the specification is a standards-based mechanism for (a) issuers to advertise which credentials they issue and the requirements for being issued these credentials, (b) DID-identified parties to apply for a credential, and (c) issuers to review credential applications and choose to either fulfill them (issuing credential(s)) or deny the application. 
+[Credential Manifest](https://identity.foundation/credential-manifest/) is approaching v1 in DIF and it is implemented in both the [SSI SDK](https://github.com/extrimian/ssi-sdk/tree/main/credential/manifest) and [SSI Service](https://github.com/extrimian/ssi-service/tree/main/pkg/service/manifest). The implementation of the specification is a standards-based mechanism for (a) issuers to advertise which credentials they issue and the requirements for being issued these credentials, (b) DID-identified parties to apply for a credential, and (c) issuers to review credential applications and choose to either fulfill them (issuing credential(s)) or deny the application. 
 
 Credential Issuance is a concept that answers the question “how does someone get a credential?”. There are two categories of receiving a credential which can further be subdivided:
 
@@ -181,7 +181,7 @@ The steps are as follows:
 3. The issuer makes a request to `GET /v1/manifests/applications?status=pending` filtering for applications that are in the *******pending******* state
 4. The issuer makes a follow-up request to get the specific application they are interested in `GET /v1/manifests/applications/<ca1-id>`
     1. The issuer reviews the credential application
-5. The issuer has an option to either fulfill or deny the application, submitting a Credential Response. If the Response is a ******denial****** a reason is provided. If the response is a ***********fulfillment*********** the issuer provides a JSON object for each credential to be issued containing the claims and settings for the credentials to be issued according to the existing [CreateCredentialRequest object](https://github.com/TBD54566975/ssi-service/blob/main/pkg/service/credential/model.go#L11). Example:
+5. The issuer has an option to either fulfill or deny the application, submitting a Credential Response. If the Response is a ******denial****** a reason is provided. If the response is a ***********fulfillment*********** the issuer provides a JSON object for each credential to be issued containing the claims and settings for the credentials to be issued according to the existing [CreateCredentialRequest object](https://github.com/extrimian/ssi-service/blob/main/pkg/service/credential/model.go#L11). Example:
 
 **Note:** `issuer` and `subject` properties are omitted, since we already have that information at this point. Issuer = Creator of the Credential Manifest. Subject = Creator of the Credential Application.
 

@@ -4,7 +4,7 @@ import (
 	"context"
 	"strings"
 
-	sdkutil "github.com/TBD54566975/ssi-sdk/util"
+	sdkutil "github.com/extrimian/ssi-sdk/util"
 	"github.com/google/tink/go/aead"
 	"github.com/google/tink/go/core/registry"
 	"github.com/google/tink/go/integration/awskms"
@@ -14,7 +14,7 @@ import (
 	"github.com/pkg/errors"
 	"google.golang.org/api/option"
 
-	"github.com/tbd54566975/ssi-service/internal/util"
+	"github.com/extrimian/ssi-service/internal/util"
 )
 
 // Encrypter the interface for any encrypter implementation.
@@ -150,7 +150,7 @@ func NewExternalEncrypter(ctx context.Context, cfg ExternalEncryptionConfig) (En
 	default:
 		return nil, nil, errors.Errorf("master_key_uri value %q is not supported", cfg.GetMasterKeyURI())
 	}
-	// TODO: move client registration to be per request (i.e. when things are encrypted/decrypted). https://github.com/TBD54566975/ssi-service/issues/598
+	// TODO: move client registration to be per request (i.e. when things are encrypted/decrypted). https://github.com/extrimian/ssi-service/issues/598
 	registry.RegisterKMSClient(client)
 	dek := aead.AES256GCMKeyTemplate()
 	kh, err := keyset.NewHandle(aead.KMSEnvelopeAEADKeyTemplate(cfg.GetMasterKeyURI(), dek))

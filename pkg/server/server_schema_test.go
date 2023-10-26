@@ -7,18 +7,18 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/TBD54566975/ssi-sdk/credential"
-	"github.com/TBD54566975/ssi-sdk/credential/parsing"
-	"github.com/TBD54566975/ssi-sdk/credential/schema"
-	"github.com/TBD54566975/ssi-sdk/crypto"
+	"github.com/extrimian/ssi-sdk/credential"
+	"github.com/extrimian/ssi-sdk/credential/parsing"
+	"github.com/extrimian/ssi-sdk/credential/schema"
+	"github.com/extrimian/ssi-sdk/crypto"
 	"github.com/goccy/go-json"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/tbd54566975/ssi-service/internal/util"
-	"github.com/tbd54566975/ssi-service/pkg/server/router"
-	"github.com/tbd54566975/ssi-service/pkg/service/did"
-	"github.com/tbd54566975/ssi-service/pkg/testutil"
+	"github.com/extrimian/ssi-service/internal/util"
+	"github.com/extrimian/ssi-service/pkg/server/router"
+	"github.com/extrimian/ssi-service/pkg/service/did"
+	"github.com/extrimian/ssi-service/pkg/testutil"
 )
 
 func TestSchemaAPI(t *testing.T) {

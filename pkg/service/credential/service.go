@@ -5,24 +5,24 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/TBD54566975/ssi-sdk/credential"
-	schemalib "github.com/TBD54566975/ssi-sdk/credential/schema"
-	statussdk "github.com/TBD54566975/ssi-sdk/credential/status"
-	"github.com/TBD54566975/ssi-sdk/did"
-	"github.com/TBD54566975/ssi-sdk/did/resolution"
-	sdkutil "github.com/TBD54566975/ssi-sdk/util"
+	"github.com/extrimian/ssi-sdk/credential"
+	schemalib "github.com/extrimian/ssi-sdk/credential/schema"
+	statussdk "github.com/extrimian/ssi-sdk/credential/status"
+	"github.com/extrimian/ssi-sdk/did"
+	"github.com/extrimian/ssi-sdk/did/resolution"
+	sdkutil "github.com/extrimian/ssi-sdk/util"
+	"github.com/extrimian/ssi-service/config"
+	credint "github.com/extrimian/ssi-service/internal/credential"
+	"github.com/extrimian/ssi-service/internal/keyaccess"
+	"github.com/extrimian/ssi-service/internal/verification"
+	"github.com/extrimian/ssi-service/pkg/server/pagination"
+	"github.com/extrimian/ssi-service/pkg/service/framework"
+	"github.com/extrimian/ssi-service/pkg/service/keystore"
+	"github.com/extrimian/ssi-service/pkg/service/schema"
+	"github.com/extrimian/ssi-service/pkg/storage"
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
-	"github.com/tbd54566975/ssi-service/config"
-	credint "github.com/tbd54566975/ssi-service/internal/credential"
-	"github.com/tbd54566975/ssi-service/internal/keyaccess"
-	"github.com/tbd54566975/ssi-service/internal/verification"
-	"github.com/tbd54566975/ssi-service/pkg/server/pagination"
-	"github.com/tbd54566975/ssi-service/pkg/service/framework"
-	"github.com/tbd54566975/ssi-service/pkg/service/keystore"
-	"github.com/tbd54566975/ssi-service/pkg/service/schema"
-	"github.com/tbd54566975/ssi-service/pkg/storage"
 	"go.einride.tech/aip/filtering"
 )
 
@@ -174,14 +174,17 @@ func (s Service) createCredential(ctx context.Context, request CreateCredentialR
 	}
 
 	// if a schema value exists, verify we can access it, validate the data against it, then set it
-	var knownSchema *schemalib.JSONSchema
+	var knownSchema schemalib.VCJSONSchema
+	var schemaType schemalib.VCJSONSchemaType
 	if request.SchemaID != "" {
 		// resolve schema and save it for validation later
 		gotSchema, schemaType, err := s.schema.Resolve(ctx, request.SchemaID)
 		if err != nil {
 			return nil, sdkutil.LoggingErrorMsgf(err, "failed to create credential; could not get schema: %s", request.SchemaID)
 		}
-		knownSchema = gotSchema
+		for k, v := range *gotSchema {
+			knownSchema[k] = v
+		}
 		credSchema := credential.CredentialSchema{
 			ID:   request.SchemaID,
 			Type: schemaType.String(),
@@ -229,7 +232,7 @@ func (s Service) createCredential(ctx context.Context, request CreateCredentialR
 
 	// verify the built schema complies with the schema we've set
 	if knownSchema != nil {
-		if err = schemalib.IsCredentialValidForJSONSchema(*cred, *knownSchema); err != nil {
+		if err = schemalib.IsCredentialValidForJSONSchema(*cred, knownSchema, schemaType); err != nil {
 			return nil, sdkutil.LoggingErrorMsgf(err, "credential data does not comply with the provided schema: %s", request.SchemaID)
 		}
 	}

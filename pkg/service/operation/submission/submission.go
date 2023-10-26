@@ -3,10 +3,10 @@ package submission
 import (
 	"fmt"
 
+	opstorage "github.com/extrimian/ssi-service/pkg/service/operation/storage"
+	"github.com/extrimian/ssi-service/pkg/storage"
 	"github.com/goccy/go-json"
 	"github.com/pkg/errors"
-	opstorage "github.com/tbd54566975/ssi-service/pkg/service/operation/storage"
-	"github.com/tbd54566975/ssi-service/pkg/storage"
 )
 
 // IDFromSubmissionID returns a submission operation ID from the submission ID.

@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
 
-	"github.com/tbd54566975/ssi-service/pkg/service/webhook"
+	"github.com/extrimian/ssi-service/pkg/service/webhook"
 )
 
 // Define a custom response writer that wraps the original response writer and writes to a buffer
@@ -24,7 +24,7 @@ func (rw *responseWriter) Write(b []byte) (int, error) {
 }
 
 // Webhook is a middleware that publishes a webhook after the request handler has finished writing the response
-// TODO(https://github.com/TBD54566975/ssi-service/issues/435): currently this runs on each request even if no webhooks are registered. It should be updated to only run if webhooks are registered.
+// TODO(https://github.com/extrimian/ssi-service/issues/435): currently this runs on each request even if no webhooks are registered. It should be updated to only run if webhooks are registered.
 func Webhook(webhookService *webhook.Service, noun webhook.Noun, verb webhook.Verb) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		// Wrap the original response writer with a new response writer that writes to the buffer

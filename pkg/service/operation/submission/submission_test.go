@@ -3,8 +3,8 @@ package submission
 import (
 	"testing"
 
+	"github.com/extrimian/ssi-service/pkg/service/operation/storage"
 	"github.com/stretchr/testify/assert"
-	"github.com/tbd54566975/ssi-service/pkg/service/operation/storage"
 )
 
 func TestSubmissionID(t *testing.T) {

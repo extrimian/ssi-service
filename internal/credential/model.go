@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/TBD54566975/ssi-sdk/credential"
-	"github.com/TBD54566975/ssi-sdk/credential/parsing"
+	"github.com/extrimian/ssi-sdk/credential"
+	"github.com/extrimian/ssi-sdk/credential/parsing"
 	"github.com/goccy/go-json"
 	"github.com/pkg/errors"
 
-	"github.com/tbd54566975/ssi-service/internal/keyaccess"
+	"github.com/extrimian/ssi-service/internal/keyaccess"
 )
 
 // Container acts as an abstraction over both possible credential representations

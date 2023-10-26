@@ -5,15 +5,15 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/TBD54566975/ssi-sdk/credential"
-	statussdk "github.com/TBD54566975/ssi-sdk/credential/status"
-	sdkutil "github.com/TBD54566975/ssi-sdk/util"
+	"github.com/extrimian/ssi-sdk/credential"
+	statussdk "github.com/extrimian/ssi-sdk/credential/status"
+	sdkutil "github.com/extrimian/ssi-sdk/util"
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
 
-	"github.com/tbd54566975/ssi-service/config"
-	credint "github.com/tbd54566975/ssi-service/internal/credential"
-	"github.com/tbd54566975/ssi-service/pkg/storage"
+	"github.com/extrimian/ssi-service/config"
+	credint "github.com/extrimian/ssi-service/internal/credential"
+	"github.com/extrimian/ssi-service/pkg/storage"
 )
 
 func (s Service) createStatusListEntryForCredential(ctx context.Context, credID string, request CreateCredentialRequest,

@@ -3,16 +3,16 @@ package did
 import (
 	"context"
 
-	didsdk "github.com/TBD54566975/ssi-sdk/did"
-	"github.com/TBD54566975/ssi-sdk/did/resolution"
-	"github.com/TBD54566975/ssi-sdk/util"
+	didsdk "github.com/extrimian/ssi-sdk/did"
+	"github.com/extrimian/ssi-sdk/did/resolution"
+	"github.com/extrimian/ssi-sdk/util"
+	"github.com/extrimian/ssi-service/pkg/service/common"
 	"github.com/pkg/errors"
-	"github.com/tbd54566975/ssi-service/pkg/service/common"
 )
 
 // MethodHandler describes the functionality of *all* possible DID service, regardless of method
 // TODO(gabe) consider smaller/more composable interfaces and promoting reusability across methods
-// https://github.com/TBD54566975/ssi-service/issues/362
+// https://github.com/extrimian/ssi-service/issues/362
 type MethodHandler interface {
 	// GetMethod returns the did method that this handler is implementing.
 	GetMethod() didsdk.Method
@@ -21,7 +21,7 @@ type MethodHandler interface {
 	CreateDID(ctx context.Context, request CreateDIDRequest) (*CreateDIDResponse, error)
 
 	// GetDID returns a DID document for a did who's method is `GetMethod`. The DID must not have been soft-deleted.
-	// TODO(gabe): support query parameters to get soft deleted and other DIDs https://github.com/TBD54566975/ssi-service/issues/364
+	// TODO(gabe): support query parameters to get soft deleted and other DIDs https://github.com/extrimian/ssi-service/issues/364
 	GetDID(ctx context.Context, request GetDIDRequest) (*GetDIDResponse, error)
 
 	// ListDIDs returns all non-deleted DIDs for the given page. When page is nil, all non-deleted DIDs will be returned.

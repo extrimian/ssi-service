@@ -5,15 +5,15 @@ import (
 	"net/http"
 	"net/url"
 
+	"github.com/extrimian/ssi-service/pkg/server/pagination"
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
-	"github.com/tbd54566975/ssi-service/pkg/server/pagination"
 	"go.einride.tech/aip/filtering"
 
-	"github.com/tbd54566975/ssi-service/pkg/server/framework"
-	svcframework "github.com/tbd54566975/ssi-service/pkg/service/framework"
-	manifestsvc "github.com/tbd54566975/ssi-service/pkg/service/manifest/model"
-	"github.com/tbd54566975/ssi-service/pkg/service/operation"
+	"github.com/extrimian/ssi-service/pkg/server/framework"
+	svcframework "github.com/extrimian/ssi-service/pkg/service/framework"
+	manifestsvc "github.com/extrimian/ssi-service/pkg/service/manifest/model"
+	"github.com/extrimian/ssi-service/pkg/service/operation"
 )
 
 const (

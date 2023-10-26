@@ -1,6 +1,6 @@
 # TOML Config File
 
-Config is managed using a [TOML](https://toml.io/en/) [file](https://github.com/TBD54566975/ssi-service/blob/main/config/config.toml). There are sets of configuration values for the server
+Config is managed using a [TOML](https://toml.io/en/) [file](https://github.com/extrimian/ssi-service/blob/main/config/config.toml). There are sets of configuration values for the server
 (e.g. which port to listen on), the services (e.g. which database to use), and each service.
 
 Each service may define specific configuration, such as which DID methods are enabled for the DID service.
