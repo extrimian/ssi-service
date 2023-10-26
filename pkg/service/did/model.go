@@ -112,7 +112,14 @@ const (
 
 type identityRequest struct {
 	PublicKeys []publicKeyIdentityRequest `json:"publicKeys,omitempty"`
+	Services   []DIDDocService            `json:"services,omitempty"`
 	DidMethod  string                     `json:"didMethod,omitempty"`
+}
+
+type DIDDocService struct {
+	ID              string `json:"id"`
+	Type            string `json:"type"`
+	ServiceEndpoint string `json:"serviceEndpoint"`
 }
 
 type publicKeyIdentityRequest struct {
@@ -134,6 +141,7 @@ type QuarkidIdentity struct {
 	ID                 string               `json:"id"`
 	VerificationMethod []VerificationMethod `json:"verificationMethod"`
 	KeyAgreement       []string             `json:"keyAgreement"`
+	Service            []DIDDocService      `json:"service,omitempty"`
 	AssertionMethod    []string             `json:"assertionMethod"`
 }
 

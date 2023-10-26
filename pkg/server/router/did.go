@@ -471,7 +471,19 @@ func (dr DIDRouter) ResolveDID(c *gin.Context) {
 }
 
 func (dr DIDRouter) CreateQuarkidDID(c *gin.Context) {
-	did, err := dr.service.CreateQuarkidDID()
+	queryWebsocket := framework.GetQueryValue(c, "websocket")
+	queryDwn := framework.GetQueryValue(c, "dwn")
+
+	websocket := ""
+	dwn := ""
+	if queryWebsocket != nil {
+		websocket = *queryWebsocket
+	}
+	if queryDwn != nil {
+		dwn = *queryDwn
+	}
+
+	did, err := dr.service.CreateQuarkidDID(websocket, dwn)
 	if err != nil {
 		framework.LoggingRespondErrMsg(c, err.Error(), http.StatusNotFound)
 		return

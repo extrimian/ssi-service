@@ -5,9 +5,15 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/extrimian/ssi-service/pkg/service/framework"
 )
+
+func GetTBDPlusApiUrl() string {
+	url := os.Getenv("TBD_PLUS_API")
+	return url
+}
 
 type Service struct {
 }
@@ -30,7 +36,7 @@ func (s *Service) PackDIDComm(req PackDIDCommRequest) (PackDIDCommResponse, erro
 		fmt.Println("error marshaling didcomm pack request")
 		return PackDIDCommResponse{}, err
 	}
-	putReq, err := http.NewRequest(http.MethodPut, "http://localhost:3010/didcomm/pack", bytes.NewBuffer(json_data))
+	putReq, err := http.NewRequest(http.MethodPut, GetTBDPlusApiUrl()+"/didcomm/pack", bytes.NewBuffer(json_data))
 	if err != nil {
 		fmt.Println("error creating put request")
 		return PackDIDCommResponse{}, err
@@ -60,7 +66,7 @@ func (s *Service) CreateCredential(vc CredentialRequest) (SignedCredential, erro
 	}
 
 	var response SignedCredential
-	resp, err := http.Post("http://localhost:3010/credentials-bbs", "application/json", bytes.NewBuffer(json_data))
+	resp, err := http.Post(GetTBDPlusApiUrl()+"/credentials-bbs", "application/json", bytes.NewBuffer(json_data))
 	if err != nil {
 		fmt.Println("error posting create credential request")
 		return SignedCredential{}, err
@@ -80,7 +86,7 @@ func (s *Service) VerifyCredential(vc SignedCredential) (VerifyResponse, error) 
 		return VerifyResponse{}, err
 	}
 
-	putReq, err := http.NewRequest(http.MethodPut, "http://localhost:3010/credentials-bbs/verify", bytes.NewBuffer(json_data))
+	putReq, err := http.NewRequest(http.MethodPut, GetTBDPlusApiUrl()+"/credentials-bbs/verify", bytes.NewBuffer(json_data))
 	if err != nil {
 		fmt.Println("error creating put request")
 		return VerifyResponse{}, err
@@ -111,7 +117,7 @@ func (s *Service) CreateOOBFromVC(req OOBRequest) (OOBResponse, error) {
 	}
 
 	var response OOBResponse
-	resp, err := http.Post("http://localhost:3010/credentials-bbs/waci/oob", "application/json", bytes.NewBuffer(json_data))
+	resp, err := http.Post(GetTBDPlusApiUrl()+"/credentials-bbs/waci/oob", "application/json", bytes.NewBuffer(json_data))
 	if err != nil {
 		fmt.Println("error posting create oob request")
 		return OOBResponse{}, err
@@ -126,7 +132,7 @@ func (s *Service) CreateOOBFromVC(req OOBRequest) (OOBResponse, error) {
 
 func (s *Service) ListCredentials(did string) ([]VerifiableCredentialArray, error) {
 	var response []VerifiableCredentialArray
-	resp, err := http.Get(fmt.Sprintf("http://localhost:3010/credentials-bbs?did=%s", did))
+	resp, err := http.Get(fmt.Sprintf(GetTBDPlusApiUrl()+"/credentials-bbs?did=%s", did))
 	if err != nil {
 		fmt.Println("error getting list of credentials request")
 		return []VerifiableCredentialArray{}, err
@@ -141,7 +147,7 @@ func (s *Service) ListCredentials(did string) ([]VerifiableCredentialArray, erro
 
 func (s *Service) ListCredentialsWithRender(did string) ([]VerifiableCredentialWithRenderArray, error) {
 	var response []VerifiableCredentialWithRenderArray
-	resp, err := http.Get(fmt.Sprintf("http://localhost:3010/credentials-bbs/with-render-info?did=%s", did))
+	resp, err := http.Get(fmt.Sprintf(GetTBDPlusApiUrl()+"/credentials-bbs/with-render-info?did=%s", did))
 	if err != nil {
 		fmt.Println("error getting list of credentials with render request")
 		return []VerifiableCredentialWithRenderArray{}, err
@@ -152,4 +158,20 @@ func (s *Service) ListCredentialsWithRender(did string) ([]VerifiableCredentialW
 	json.NewDecoder(resp.Body).Decode(&response)
 
 	return response, nil
+}
+
+func (s *Service) ProcessMessage(req DIDCommMessage) error {
+	json_data, err := json.Marshal(req)
+	if err != nil {
+		fmt.Println("error marshaling message request")
+		return err
+	}
+
+	_, err = http.Post(GetTBDPlusApiUrl()+"/credentials-bbs/process-message", "application/json", bytes.NewBuffer(json_data))
+	if err != nil {
+		fmt.Println("error posting create oob request")
+		return err
+	}
+
+	return nil
 }

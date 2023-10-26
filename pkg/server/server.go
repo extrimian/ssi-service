@@ -161,6 +161,7 @@ func CredentialsBBSAPI(rg *gin.RouterGroup, service svcframework.Service) (err e
 	credentialsBBSAPI.PUT("/wacioob", credentialsBBSRouter.CreateOOBFromVC)
 	credentialsBBSAPI.GET("", credentialsBBSRouter.ListCredentials)
 	credentialsBBSAPI.GET("/render", credentialsBBSRouter.ListCredentialsWithRender)
+	credentialsBBSAPI.GET("/waci", credentialsBBSRouter.ProcessMessage)
 
 	credentialsBBSAPI.PUT("/didcomm/pack", credentialsBBSRouter.PackDIDComm)
 	return

@@ -29,3 +29,5 @@ log/*.log
 
 # VSCode
 .vscode
+
+config/.env

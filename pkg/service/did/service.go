@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"os"
 
 	didsdk "github.com/extrimian/ssi-sdk/did"
 	didresolution "github.com/extrimian/ssi-sdk/did/resolution"
@@ -18,6 +19,11 @@ import (
 	"github.com/extrimian/ssi-service/pkg/service/keystore"
 	"github.com/extrimian/ssi-service/pkg/storage"
 )
+
+func GetTBDPlusApiUrl() string {
+	url := os.Getenv("TBD_PLUS_API")
+	return url
+}
 
 type Service struct {
 	config  config.DIDServiceConfig
@@ -246,7 +252,7 @@ func (s *Service) getHandler(method didsdk.Method) (MethodHandler, error) {
 	return handler, nil
 }
 
-func (s *Service) CreateQuarkidDID() (QuarkidIdentityResponse, error) {
+func (s *Service) CreateQuarkidDID(websocket, dwn string) (QuarkidIdentityResponse, error) {
 	bbsJwk, err := s.createBbsPubKey()
 	if err != nil {
 		fmt.Println("error creating bbs public key")
@@ -270,7 +276,35 @@ func (s *Service) CreateQuarkidDID() (QuarkidIdentityResponse, error) {
 				PublicKeyJWK:             didCommJwk.PublicKeyJWK,
 				VerificationRelationship: "keyAgreement",
 			}},
+		// Services: []DIDDocService{
+		// 	{
+		// 		ID:              "websocket",
+		// 		Type:            "MessagingWebSocket",
+		// 		ServiceEndpoint: "https://befc-2800-af0-1408-1d9f-b0ec-e9e8-6c81-400e.ngrok-free.app",
+		// 	},
+		// 	{
+		// 		ID:              "dwn",
+		// 		Type:            "DecentralizedWebNode",
+		// 		ServiceEndpoint: "https://demo.extrimian.com/dwn/",
+		// 	},
+		// },
 		DidMethod: "did:quarkid:zksync",
+	}
+
+	if websocket != "" {
+		identityRequest.Services = append(identityRequest.Services, DIDDocService{
+			ID:              "dwn",
+			Type:            "DecentralizedWebNode",
+			ServiceEndpoint: websocket,
+		})
+	}
+
+	if dwn != "" {
+		identityRequest.Services = append(identityRequest.Services, DIDDocService{
+			ID:              "websocket",
+			Type:            "MessagingWebSocket",
+			ServiceEndpoint: dwn,
+		})
 	}
 
 	json_data, err := json.Marshal(identityRequest)
@@ -279,7 +313,7 @@ func (s *Service) CreateQuarkidDID() (QuarkidIdentityResponse, error) {
 		return QuarkidIdentityResponse{}, err
 	}
 
-	resp, err := http.Post("http://localhost:3010/identity", "application/json", bytes.NewBuffer(json_data))
+	resp, err := http.Post(GetTBDPlusApiUrl()+"/identity", "application/json", bytes.NewBuffer(json_data))
 	if err != nil {
 		fmt.Println("error posting identity request")
 		return QuarkidIdentityResponse{}, err
@@ -295,7 +329,7 @@ func (s *Service) CreateQuarkidDID() (QuarkidIdentityResponse, error) {
 
 func (s *Service) createBbsPubKey() (PublicKeyResponse, error) {
 	var response PublicKeyResponse
-	resp, err := http.Post("http://localhost:3010/bbs", "", nil)
+	resp, err := http.Post(GetTBDPlusApiUrl()+"/bbs", "", nil)
 	if err != nil {
 		fmt.Println("error posting bbs request")
 		return PublicKeyResponse{}, err
@@ -310,7 +344,7 @@ func (s *Service) createBbsPubKey() (PublicKeyResponse, error) {
 
 func (s *Service) createDIDCommPubKey() (PublicKeyResponse, error) {
 	var response PublicKeyResponse
-	resp, err := http.Post("http://localhost:3010/didcomm", "", nil)
+	resp, err := http.Post(GetTBDPlusApiUrl()+"/didcomm", "", nil)
 	if err != nil {
 		fmt.Println("error posting didcomm request")
 		return PublicKeyResponse{}, err
@@ -325,7 +359,7 @@ func (s *Service) createDIDCommPubKey() (PublicKeyResponse, error) {
 
 func (s *Service) GetQuarkidDID(id string) (QuarkidIdentity, error) {
 	var response QuarkidIdentity
-	resp, err := http.Get(fmt.Sprintf("http://localhost:3010/identity/%s", id))
+	resp, err := http.Get(fmt.Sprintf(GetTBDPlusApiUrl()+"/identity/%s", id))
 	if err != nil {
 		fmt.Println("error getting quarkid did request")
 		return QuarkidIdentity{}, err

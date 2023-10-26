@@ -92,6 +92,16 @@ type VerifiableCredential struct {
 	CredentialSub CredentialSubject `json:"credentialSubject"`
 }
 
+type SignedVerifiableCredential struct {
+	Context       []string          `json:"@context"`
+	ID            string            `json:"id"`
+	Type          []string          `json:"type"`
+	Issuer        string            `json:"issuer"`
+	IssuanceDate  string            `json:"issuanceDate"`
+	CredentialSub CredentialSubject `json:"credentialSubject"`
+	Proof         Proof             `json:"proof"`
+}
+
 type CredentialSubject struct {
 	ID         string `json:"id"`
 	GivenName  string `json:"givenName"`
@@ -126,27 +136,26 @@ type Proof struct {
 }
 
 type SignedCredential struct {
-	VerifiableCredential VerifiableCredential `json:"vc"`
-	OutputDescriptor     OutputDescriptor     `json:"outputDescriptor"`
-	Issuer               Issuer               `json:"issuer"`
-	Proof                Proof                `json:"proof"`
+	VerifiableCredential SignedVerifiableCredential `json:"vc"`
+	OutputDescriptor     OutputDescriptor           `json:"outputDescriptor"`
+	Issuer               Issuer                     `json:"issuer"`
 }
 
 type VerifyResponse struct {
-	Verified string `json:"verified"`
+	Verified bool `json:"verified"`
 }
 
 type VerifiableCredentialArray struct {
-	ID                   string               `json:"id"`
-	VerifiableCredential VerifiableCredential `json:"vc"`
+	ID                   string                     `json:"id"`
+	VerifiableCredential SignedVerifiableCredential `json:"vc"`
 }
 
 type VerifiableCredentialWithRenderArray struct {
 	ID   string `json:"id"`
 	Data struct {
-		Styles               Styles               `json:"styles"`
-		Display              Display              `json:"display"`
-		VerifiableCredential VerifiableCredential `json:"vc"`
+		Styles               Styles                     `json:"styles"`
+		Display              Display                    `json:"display"`
+		VerifiableCredential SignedVerifiableCredential `json:"vc"`
 	} `json:"data"`
 }
 
@@ -161,4 +170,9 @@ type OOBRequest struct {
 type OOBResponse struct {
 	InvitationID string `json:"invitationId"`
 	OOBContent   string `json:"oobContentData"`
+}
+
+type DIDCommMessage struct {
+	DID     string `json:"did"`
+	Message string `json:"message"`
 }

@@ -117,3 +117,18 @@ func (cbr CredentialsBBSRouter) ListCredentialsWithRender(c *gin.Context) {
 	}
 	framework.Respond(c, listResponse, http.StatusOK)
 }
+
+func (cbr CredentialsBBSRouter) ProcessMessage(c *gin.Context) {
+	var Request credentials_bbs.DIDCommMessage
+	if err := framework.Decode(c.Request, &Request); err != nil {
+		framework.LoggingRespondErrMsg(c, err.Error(), http.StatusBadRequest)
+		return
+	}
+
+	err := cbr.service.ProcessMessage(Request)
+	if err != nil {
+		framework.LoggingRespondErrMsg(c, err.Error(), http.StatusNotFound)
+		return
+	}
+	framework.Respond(c, nil, http.StatusOK)
+}
