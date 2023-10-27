@@ -174,5 +174,6 @@ type OOBResponse struct {
 
 type DIDCommMessage struct {
 	DID     string `json:"did"`
+	To      string `json:"to,omitempty"`
 	Message string `json:"message"`
 }

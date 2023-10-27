@@ -154,6 +154,8 @@ func CredentialsBBSAPI(rg *gin.RouterGroup, service svcframework.Service) (err e
 		return sdkutil.LoggingErrorMsg(err, "creating credentials_bbs router")
 	}
 
+	rg.PUT("/messaging", credentialsBBSRouter.Messaging)
+
 	config.SetServicePath(svcframework.CredentialsBBS, CredentialsBBSPrefix)
 	credentialsBBSAPI := rg.Group(CredentialsBBSPrefix)
 	credentialsBBSAPI.PUT("", credentialsBBSRouter.CreateCredential)

@@ -167,7 +167,31 @@ func (s *Service) ProcessMessage(req DIDCommMessage) error {
 		return err
 	}
 
-	_, err = http.Post(GetTBDPlusApiUrl()+"/credentials-bbs/process-message", "application/json", bytes.NewBuffer(json_data))
+	putReq, err := http.NewRequest(http.MethodPut, GetTBDPlusApiUrl()+"/credentials-bbs/process-message", bytes.NewBuffer(json_data))
+	if err != nil {
+		fmt.Println("error creating put request")
+		return err
+	}
+
+	putReq.Header.Set("Content-Type", "application/json")
+	client := &http.Client{}
+	_, err = client.Do(putReq)
+	if err != nil {
+		fmt.Println("error sending put request")
+		return err
+	}
+
+	return nil
+}
+
+func (s *Service) Messaging(req DIDCommMessage) error {
+	json_data, err := json.Marshal(req)
+	if err != nil {
+		fmt.Println("error marshaling oob request")
+		return err
+	}
+
+	_, err = http.Post(GetTBDPlusApiUrl()+"/messaging", "application/json", bytes.NewBuffer(json_data))
 	if err != nil {
 		fmt.Println("error posting create oob request")
 		return err
