@@ -3123,7 +3123,7 @@ paths:
       tags:
         - CredentilasBBSQuarkid
   /v1/credentialsbbs/waci:
-    put:
+    get:
       consumes:
         - application/json
       description: Interpret a DidComm flow
