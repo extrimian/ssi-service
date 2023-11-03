@@ -70,17 +70,21 @@ type Styles struct {
 }
 
 type Display struct {
-	Title       DisplayField `json:"title"`
-	Subtitle    DisplayField `json:"subtitle"`
-	Description struct {
-		Text string `json:"text"`
-	} `json:"description"`
-	Styles Styles `json:"styles"`
+	Title       DisplayField   `json:"title"`
+	Subtitle    DisplayField   `json:"subtitle"`
+	Description DisplayField   `json:"description"`
+	Properties  []DisplayField `json:"properties"`
+	Styles      Styles         `json:"styles"`
 }
 
 type DisplayField struct {
-	Path     []string `json:"path"`
-	Fallback string   `json:"fallback"`
+	Path   []string `json:"path,omitempty"`
+	Schema struct {
+		Type string `json:"type,omitempty"`
+	} `json:"schema,omitempty"`
+	Fallback string `json:"fallback,omitempty"`
+	Label    string `json:"label,omitempty"`
+	Text     string `json:"text,omitempty"`
 }
 
 type VerifiableCredential struct {
