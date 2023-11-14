@@ -88,29 +88,29 @@ type DisplayField struct {
 }
 
 type VerifiableCredential struct {
-	Context       []string          `json:"@context"`
-	ID            string            `json:"id"`
-	Type          []string          `json:"type"`
-	Issuer        string            `json:"issuer"`
-	IssuanceDate  string            `json:"issuanceDate"`
-	CredentialSub CredentialSubject `json:"credentialSubject"`
+	Context       []string `json:"@context"`
+	ID            string   `json:"id"`
+	Type          []string `json:"type"`
+	Issuer        string   `json:"issuer"`
+	IssuanceDate  string   `json:"issuanceDate"`
+	CredentialSub any      `json:"credentialSubject"`
 }
 
 type SignedVerifiableCredential struct {
-	Context       []string          `json:"@context"`
-	ID            string            `json:"id"`
-	Type          []string          `json:"type"`
-	Issuer        string            `json:"issuer"`
-	IssuanceDate  string            `json:"issuanceDate"`
-	CredentialSub CredentialSubject `json:"credentialSubject"`
-	Proof         Proof             `json:"proof"`
+	Context       []string `json:"@context"`
+	ID            string   `json:"id"`
+	Type          []string `json:"type"`
+	Issuer        string   `json:"issuer"`
+	IssuanceDate  string   `json:"issuanceDate"`
+	CredentialSub any      `json:"credentialSubject"`
+	Proof         Proof    `json:"proof"`
 }
 
-type CredentialSubject struct {
-	ID         string `json:"id"`
-	GivenName  string `json:"givenName"`
-	FamilyName string `json:"familyName"`
-}
+// type CredentialSubject struct {
+// 	ID         string `json:"id"`
+// 	GivenName  string `json:"givenName"`
+// 	FamilyName string `json:"familyName"`
+// }
 
 type OutputDescriptor struct {
 	ID      string  `json:"id"`

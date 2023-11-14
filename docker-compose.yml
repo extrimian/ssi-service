@@ -5,3 +5,5 @@ services:
     container_name: "api"
     ports:
       - 3000:3000
+    environment: 
+      - TBD_PLUS_API=
